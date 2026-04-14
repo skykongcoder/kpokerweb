@@ -1,8 +1,8 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 # Block specific crawler loops if needed (good practice)
 Disallow: /*?*
 
 # Explicit Sitemap
-Sitemap: https://kpoker.gg/sitemap.xml
+Sitemap: https://kpoker.win/sitemap.xml
