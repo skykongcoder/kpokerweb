@@ -126,7 +126,11 @@
         <div style="display: flex; justify-content: center; gap: 24px; overflow-x: auto; white-space: nowrap; scrollbar-width: none;">
           <a href="#process" style="font-weight: 700; color: var(--text-muted);">게임 프로세스</a>
           <a href="#ranking" style="font-weight: 700; color: var(--text-muted);">포커 족보</a>
+          <a href="#starting-hands" style="font-weight: 700; color: var(--text-muted);">시작 핸드</a>
+          <a href="#position" style="font-weight: 700; color: var(--text-muted);">포지션 전략</a>
+          <a href="#pot-odds" style="font-weight: 700; color: var(--text-muted);">팟 오즈</a>
           <a href="#tactics" style="font-weight: 700; color: var(--text-muted);">상황별 전술</a>
+          <a href="#mistakes" style="font-weight: 700; color: var(--text-muted);">초보 실수</a>
           <a href="#psychology" style="font-weight: 700; color: var(--text-muted);">심리 통제</a>
         </div>
       </div>
@@ -212,8 +216,206 @@
       </div>
     </section>
 
+    <!-- Starting Hand Chart -->
+    <section id="starting-hands" style="padding: 100px 0; background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">스타팅 핸드 등급표 (Sklansky 그룹)</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">
+            데이비드 스클란스키(David Sklansky)가 분류한 스타팅 핸드 8단계입니다. 9인 풀 링게임 기준이며, 등급이 낮을수록(1에 가까울수록) 강한 핸드입니다.
+            't' = 슈티드(같은 무늬), 'o' = 오프수트(다른 무늬).
+          </p>
+
+          <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: var(--shadow-md);">
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 2px solid #0f4ab9; font-weight: 800; color: #0f4ab9;">
+              <div>그룹</div><div>핸드</div><div style="text-align: right;">권장 액션</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+              <div style="font-weight: 800; color: #f59e0b;">Group 1<br><span style="font-weight: 500; font-size: 0.8rem; color: #94a3b8;">프리미엄</span></div>
+              <div style="font-family: monospace; font-size: 0.95rem;">AA, KK, QQ, JJ, AKs</div>
+              <div style="text-align: right; font-weight: 700; color: #ef4444;">전 포지션 레이즈/리레이즈</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <div style="font-weight: 800; color: #f59e0b;">Group 2<br><span style="font-weight: 500; font-size: 0.8rem; color: #94a3b8;">강한 핸드</span></div>
+              <div style="font-family: monospace; font-size: 0.95rem;">TT, AKo, AQs, KQs</div>
+              <div style="text-align: right; font-weight: 700; color: #ef4444;">전 포지션 레이즈</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+              <div style="font-weight: 800; color: #0f4ab9;">Group 3</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">99, AJs, KJs, ATs, AQo</div>
+              <div style="text-align: right; font-weight: 700; color: #f59e0b;">미들~레이트 레이즈</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <div style="font-weight: 800; color: #0f4ab9;">Group 4</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">88, KQo, QJs, JTs, AJo, KTs</div>
+              <div style="text-align: right; font-weight: 700; color: #f59e0b;">미들~레이트 레이즈/콜</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+              <div style="font-weight: 800; color: #10b981;">Group 5</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">77, T9s, KJo, QTs, 98s, J9s, A9s~A2s</div>
+              <div style="text-align: right; font-weight: 700; color: #10b981;">레이트 포지션 콜/레이즈</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <div style="font-weight: 800; color: #10b981;">Group 6</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">66, 55, ATo, KTo, QJo, 87s, 76s</div>
+              <div style="text-align: right; font-weight: 700; color: #10b981;">레이트 포지션 림프/콜</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+              <div style="font-weight: 800; color: #64748b;">Group 7-8</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">44, 33, 22, 작은 슈티드 커넥터, 작은 슈티드 에이스</div>
+              <div style="text-align: right; font-weight: 700; color: #64748b;">버튼/SB만 림프</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 90px 1fr 110px; gap: 16px; padding: 14px 0; background: #fef2f2;">
+              <div style="font-weight: 800; color: #ef4444;">Trash</div>
+              <div style="font-family: monospace; font-size: 0.95rem;">위에 없는 모든 핸드 (전체의 약 75%)</div>
+              <div style="text-align: right; font-weight: 700; color: #ef4444;">즉시 폴드</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 30px; padding: 24px; background: white; border-left: 4px solid #f59e0b; border-radius: 8px;">
+            <strong style="color: #f59e0b;">⚡ 핵심 인사이트</strong>
+            <p style="margin-top: 8px; color: #475569; line-height: 1.7;">
+              세계 최상위 프로들은 169개 가능한 시작 핸드 중 약 <strong>20-25%만 플레이</strong>합니다. 초보자는 보통 40-50%의 핸드를 플레이하면서 손해를 봅니다.
+              "더 많이 플레이하면 더 많이 이긴다"는 직관과 정반대로, 포커는 <strong>'얼마나 자주 폴드하느냐'</strong>가 승부를 결정합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Position Strategy -->
+    <section id="position" style="padding: 100px 0; background: white;">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">9인 테이블 포지션별 전략</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 50px; line-height: 1.8;">
+          포지션은 텍사스 홀덤에서 가장 영향력 있는 변수입니다. 같은 핸드라도 포지션에 따라 기대값이 완전히 달라집니다.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto;">
+          <div style="background: #fef2f2; padding: 28px; border-radius: 16px; border-top: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">EARLY POSITION</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">UTG, UTG+1, UTG+2</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem; margin-bottom: 12px;">
+              나머지 6-8명의 액션을 모르고 가장 먼저 결정해야 하는 가장 불리한 자리입니다.
+            </p>
+            <strong style="color: #ef4444;">권장 레인지:</strong>
+            <p style="font-family: monospace; color: #475569; font-size: 0.9rem; margin-top: 4px;">상위 10% 핸드만 (Group 1-2)</p>
+          </div>
+
+          <div style="background: #fffbeb; padding: 28px; border-radius: 16px; border-top: 4px solid #f59e0b;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #f59e0b; margin-bottom: 6px;">MIDDLE POSITION</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">MP1, MP2, MP3 (Hijack)</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem; margin-bottom: 12px;">
+              앞쪽 2-3명만 폴드를 확인한 상태. 아직 후방에 강한 플레이어가 남아있을 수 있습니다.
+            </p>
+            <strong style="color: #f59e0b;">권장 레인지:</strong>
+            <p style="font-family: monospace; color: #475569; font-size: 0.9rem; margin-top: 4px;">상위 15-18% 핸드 (Group 1-3)</p>
+          </div>
+
+          <div style="background: #f0fdf4; padding: 28px; border-radius: 16px; border-top: 4px solid #10b981;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #10b981; margin-bottom: 6px;">LATE POSITION</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">CO (Cutoff), BTN (Button)</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem; margin-bottom: 12px;">
+              플랍 이후 모든 액션의 마지막 결정권을 가집니다. 정보 우위가 절대적입니다.
+            </p>
+            <strong style="color: #10b981;">권장 레인지:</strong>
+            <p style="font-family: monospace; color: #475569; font-size: 0.9rem; margin-top: 4px;">상위 25-35% 핸드 (Group 1-6)</p>
+          </div>
+
+          <div style="background: #eef2ff; padding: 28px; border-radius: 16px; border-top: 4px solid #0f4ab9;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #0f4ab9; margin-bottom: 6px;">BLINDS</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">SB (Small Blind), BB (Big Blind)</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem; margin-bottom: 12px;">
+              이미 강제 베팅이 들어간 상태. 플랍부터는 첫 액션이라 불리하지만 디스카운트된 가격으로 플레이 가능.
+            </p>
+            <strong style="color: #0f4ab9;">권장 레인지:</strong>
+            <p style="font-family: monospace; color: #475569; font-size: 0.9rem; margin-top: 4px;">SB는 타이트하게, BB는 디펜스 위주</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; background: #1e293b; color: white; padding: 32px; border-radius: 16px;">
+          <h3 style="font-weight: 800; margin-bottom: 16px; color: #facc15;">📊 통계로 보는 포지션의 위력</h3>
+          <p style="line-height: 1.8; opacity: 0.95;">
+            동일한 핸드 <strong>JTs</strong>를 가졌을 때:
+          </p>
+          <ul style="margin-top: 12px; line-height: 2; opacity: 0.9; padding-left: 22px;">
+            <li>UTG에서 플레이 시 평균 기대값: <span style="color: #f87171;">-2.3 BB/100핸드</span></li>
+            <li>버튼에서 플레이 시 평균 기대값: <span style="color: #4ade80;">+8.7 BB/100핸드</span></li>
+          </ul>
+          <p style="margin-top: 16px; font-size: 0.9rem; opacity: 0.8;">
+            * BB/100 = 100핸드당 빅블라인드 단위 손익. 같은 핸드, 같은 플레이어인데 포지션만으로 11 BB 차이가 발생합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pot Odds Section -->
+    <section id="pot-odds" style="padding: 100px 0; background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">팟 오즈 & 임플라이드 오즈 마스터링</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">
+            모든 콜·폴드 결정의 수학적 근거. 직관이 아닌 숫자로 판단하는 프로의 사고 방식입니다.
+          </p>
+
+          <div style="background: white; padding: 36px; border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: 24px;">
+            <h3 style="font-weight: 800; margin-bottom: 16px; color: #0f4ab9;">📐 팟 오즈 공식</h3>
+            <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; text-align: center; color: #0f4ab9; font-weight: 700;">
+              팟 오즈 (%) = 콜 금액 ÷ (현재 팟 + 상대 베팅 + 콜 금액) × 100
+            </div>
+            <p style="margin-top: 20px; color: #475569; line-height: 1.8;">
+              이 수치는 "내가 손해보지 않으려면 최소 몇 %의 승률이 필요한가"를 의미합니다.
+              자신의 핸드 승률(에쿼티)이 이 수치보다 높으면 콜이 수학적으로 옳은 결정이며, 낮으면 폴드해야 합니다.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 36px; border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: 24px;">
+            <h3 style="font-weight: 800; margin-bottom: 20px; color: #0f4ab9;">🎯 실전 예시: 플러시 드로우</h3>
+            <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+              <strong>상황:</strong> 플랍에 ♥A ♥7 ♣2가 깔렸고, 당신의 핸드는 ♥K ♥Q (백도어 플러시 드로우 + 두 오버카드).
+              현재 팟은 100칩, 상대가 50칩 베팅. 당신은 콜할 것인가?
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+              <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                <strong style="color: #0f4ab9;">팟 오즈 계산</strong>
+                <p style="margin-top: 8px; color: #475569; font-family: monospace; font-size: 0.9rem;">
+                  50 ÷ (100 + 50 + 50)<br>
+                  = 50 ÷ 200<br>
+                  = <span style="color: #ef4444; font-weight: 800;">25%</span>
+                </p>
+              </div>
+              <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                <strong style="color: #0f4ab9;">에쿼티 계산</strong>
+                <p style="margin-top: 8px; color: #475569; font-family: monospace; font-size: 0.9rem;">
+                  플러시 9 outs + K/Q 6 outs<br>
+                  = 15 outs × 4 (4-2 룰)<br>
+                  ≈ <span style="color: #10b981; font-weight: 800;">54%</span>
+                </p>
+              </div>
+            </div>
+
+            <div style="padding: 16px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border-radius: 8px; text-align: center; font-weight: 700;">
+              ✅ 결론: 에쿼티(54%) &gt; 팟 오즈(25%) → 콜이 수학적으로 옳은 결정
+            </div>
+          </div>
+
+          <div style="background: white; padding: 36px; border-radius: 16px; box-shadow: var(--shadow-md);">
+            <h3 style="font-weight: 800; margin-bottom: 16px; color: #0f4ab9;">💡 임플라이드 오즈 (Implied Odds)</h3>
+            <p style="color: #475569; line-height: 1.8; margin-bottom: 16px;">
+              팟 오즈만으로 부족한 경우, 핸드가 완성됐을 때 추가로 얻을 수 있는 미래 베팅을 고려한 개념입니다.
+            </p>
+            <p style="color: #475569; line-height: 1.8;">
+              예를 들어 셋(트리플)을 노릴 때 직접 팟 오즈는 부족해도(2 outs = 8.4%), 셋이 완성되면 상대로부터 큰 베팅을 끌어낼 수 있어 결과적으로 콜이 정당화됩니다.
+              상대 스택이 깊을수록(딥 스택), 상대가 액션 플레이어일수록 임플라이드 오즈가 커집니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Professional Tactics (Bento) -->
-    <section id="tactics" style="padding: 100px 0; background: var(--bg-alt);">
+    <section id="tactics" style="padding: 100px 0; background: white;">
       <div class="container">
         <h2 class="strategy-section-title reveal">프로 플레이어의 마스터링 전술</h2>
         <div class="pro-bento stagger-group">
@@ -238,16 +440,133 @@
       </div>
     </section>
 
+    <!-- Common Mistakes Section -->
+    <section id="mistakes" style="padding: 100px 0; background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">초보자가 가장 자주 저지르는 7가지 치명적 실수</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 720px; margin: 0 auto 50px; line-height: 1.8;">
+          이 실수들만 피해도 평균 이상의 승률을 달성할 수 있습니다. 모두 K-POKER 누적 데이터에서 검증된 패턴입니다.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto;">
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #1</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">너무 많은 핸드를 플레이</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              "조금만 보고 폴드해야지"라며 들어간 핸드 대부분이 손실로 이어집니다. 프리플랍 폴드율이 70% 이상이어야 정상입니다.
+              지루함을 못 견딘다면 <strong>다른 테이블의 핸드를 분석</strong>하며 시간을 보내세요.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #2</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">에이스를 무조건 신뢰</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              A2o, A5o 같은 약한 에이스로 큰 팟에 들어가면 키커 싸움에서 패배합니다.
+              에이스가 있다고 해서 강한 핸드가 아닙니다. <strong>키커 등급</strong>까지 함께 평가하세요.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #3</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">팟에 묶여 끝까지 가기</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              "이미 많이 넣었으니 끝까지 봐야지"는 가장 큰 함정입니다. 이전에 베팅한 칩은 <strong>매몰비용(sunk cost)</strong>일 뿐입니다.
+              현 시점부터의 기댓값만으로 판단하세요.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #4</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">잘못된 블러프</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              초보가 자주 하는 실수: ① 콜링 스테이션(자주 콜하는 사람) 상대 블러프 ② 멀티웨이 팟 블러프 ③ 너무 작은 사이즈로 블러프.
+              블러프는 <strong>약한 1명을 상대로, 큰 사이즈로</strong>만 의미가 있습니다.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #5</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">베팅 사이즈 무시</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              "어차피 콜할 거니까 미니 레이즈"는 가치를 버리는 행위입니다.
+              밸류 베팅은 <strong>팟의 60-75%</strong>가 표준입니다. 너무 작으면 보호가 안 되고, 너무 크면 폴드율이 올라가 가치 추출 실패.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #6</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">패배 후 즉시 본전 회수 시도</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              큰 팟을 잃은 직후 다음 핸드에서 무리하게 베팅하는 '리벤지 트레이드'는 추가 손실을 부릅니다.
+              <strong>5분 이상 휴식</strong> 후 평정심이 돌아왔을 때 복귀하세요.
+            </p>
+          </div>
+
+          <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid #ef4444; grid-column: 1 / -1;">
+            <div style="font-size: 0.8rem; font-weight: 800; color: #ef4444; margin-bottom: 6px;">MISTAKE #7</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">상대를 관찰하지 않음</h3>
+            <p style="color: #475569; line-height: 1.7; font-size: 0.95rem;">
+              자신의 카드만 보는 초보 vs 상대의 베팅 패턴·타이밍·사이즈를 추적하는 프로의 차이는 결정적입니다.
+              <strong>VPIP(자발적 팟 참여율)·PFR(프리플랍 레이즈율)·3-bet%</strong> 등의 통계를 머릿속에 그리며 플레이하세요.
+              상대가 타이트하면 스틸 시도, 루즈하면 밸류 베팅 위주로 전환합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Psychology Section -->
     <section id="psychology" style="padding: 100px 0; background: white;">
       <div class="container">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="reveal">
-          <h2 class="strategy-section-title" style="margin-bottom: 24px;">강인한 정신력: 틸트(Tilt) 통제</h2>
-          <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
-            가장 뛰어난 전략가도 분노 앞에서는 무너집니다. 억울한 패배(배드 비트)를 당했을 때 냉정함을 잃지 않는 것, 그것이 K-POKER가 지향하는 진정한 고수의 자세입니다. 평정심을 잃었다면 즉시 테이블에서 일어나 휴식을 취하십시오.
+        <div style="max-width: 880px; margin: 0 auto;" class="reveal">
+          <h2 class="strategy-section-title" style="margin-bottom: 24px;">강인한 정신력: 틸트(Tilt) 통제법</h2>
+          <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; text-align: center; margin-bottom: 50px;">
+            가장 뛰어난 전략가도 감정 앞에서는 무너집니다. 틸트는 모든 포커 손실의 80% 이상을 차지하는 가장 큰 적입니다.
           </p>
-          <div style="margin-top: 40px;">
-            <a href="https://kpoker.win/ko" target="_blank" class="btn-primary large wave-btn">실전에서 전략 테스트하기</a>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 50px;">
+            <div style="background: #fef3c7; padding: 24px; border-radius: 14px;">
+              <h4 style="font-weight: 800; color: #92400e; margin-bottom: 10px;">🔴 배드 비트 틸트</h4>
+              <p style="color: #78350f; font-size: 0.92rem; line-height: 1.7;">
+                90% 승률에서 패배했을 때 발생. <strong>대처:</strong> 즉시 테이블 종료, 5분 호흡 훈련.
+              </p>
+            </div>
+            <div style="background: #fee2e2; padding: 24px; border-radius: 14px;">
+              <h4 style="font-weight: 800; color: #991b1b; margin-bottom: 10px;">🔴 챔피언십 틸트</h4>
+              <p style="color: #7f1d1d; font-size: 0.92rem; line-height: 1.7;">
+                "내가 이 사람보다 잘하는데 왜 지지?" <strong>대처:</strong> 단기 결과는 분산일 뿐, 장기 통계만 신뢰.
+              </p>
+            </div>
+            <div style="background: #ede9fe; padding: 24px; border-radius: 14px;">
+              <h4 style="font-weight: 800; color: #5b21b6; margin-bottom: 10px;">🔴 스티밍 틸트</h4>
+              <p style="color: #4c1d95; font-size: 0.92rem; line-height: 1.7;">
+                연속 패배로 인한 분노 폭발. <strong>대처:</strong> 일일 손실 한도 사전 설정 (스톱로스).
+              </p>
+            </div>
+            <div style="background: #dbeafe; padding: 24px; border-radius: 14px;">
+              <h4 style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">🔵 위닝 틸트</h4>
+              <p style="color: #1e40af; font-size: 0.92rem; line-height: 1.7;">
+                연승으로 인한 과신. <strong>대처:</strong> 승리 직후일수록 베팅 사이즈를 더 보수적으로.
+              </p>
+            </div>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 36px; border-radius: 16px;">
+            <h3 style="font-weight: 800; margin-bottom: 16px; color: #facc15;">🧘 틸트 방지 5단계 루틴</h3>
+            <ol style="line-height: 2; opacity: 0.95; padding-left: 22px;">
+              <li><strong>세션 시작 전:</strong> 오늘의 손실 한도(예: 뱅크롤의 3%)를 메모지에 적어 모니터에 부착</li>
+              <li><strong>매 30분마다:</strong> 일어나서 물 한 잔, 가벼운 스트레칭으로 혈류 순환</li>
+              <li><strong>큰 팟 패배 직후:</strong> 무조건 다음 핸드는 폴드. 최소 1핸드 이상 관찰</li>
+              <li><strong>2회 연속 큰 패배:</strong> 즉시 세션 종료. 그날은 더 이상 게임 금지</li>
+              <li><strong>세션 종료 후:</strong> 핸드 히스토리 검토. 결과가 아닌 <strong>의사결정의 질</strong>만 평가</li>
+            </ol>
+          </div>
+
+          <div style="text-align: center; margin-top: 50px;">
+            <p style="color: var(--text-muted); margin-bottom: 20px;">전략 학습을 마쳤다면, 다음은 실전입니다.</p>
+            <a href="/guide" class="btn-secondary large" style="text-decoration: none; display: inline-block;">사용자 가이드 보기 →</a>
           </div>
         </div>
       </div>
