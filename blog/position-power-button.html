@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포지션의 힘 - 버튼이 가장 비싼 자리인 이유 - K-POKER 블로그</title>
+
+  <meta name="description" content="9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.">
+  <meta name="keywords" content="포지션, 버튼, BTN, EP MP LP, 포커 포지션 전략">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog/position-power-button">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="포지션의 힘 - 버튼이 가장 비싼 자리인 이유">
+  <meta property="og:description" content="9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.">
+  <meta property="og:url" content="https://kpoker.win/blog/position-power-button">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="article:published_time" content="2026-04-18">
+  <meta property="article:author" content="K-POKER 코리아">
+  <meta property="article:section" content="전략">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "포지션의 힘 - 버튼이 가장 비싼 자리인 이유",
+    "description": "9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.",
+    "image": "https://kpoker.win/hero.png",
+    "datePublished": "2026-04-18",
+    "dateModified": "2026-04-18",
+    "author": {
+      "@type": "Organization",
+      "name": "K-POKER 코리아",
+      "url": "https://kpoker.win"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kpoker.win/blog/position-power-button"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; }
+    .post-hero .container { max-width: 800px; }
+    .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
+
+    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
+    .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .post-body p { margin: 16px 0; }
+    .post-body ul, .post-body ol { margin: 16px 0 16px 24px; }
+    .post-body li { margin: 8px 0; }
+    .post-body strong { color: var(--text-main); font-weight: 700; }
+    .post-body code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: var(--font-en); font-size: 0.9em; color: var(--primary); }
+    .post-body pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0; }
+    .post-body pre code { background: none; color: inherit; padding: 0; }
+    .post-body blockquote { border-left: 4px solid var(--primary); background: #f8fafc; padding: 16px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; color: var(--text-muted); }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+    .post-body th, .post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .post-body th { background: #f8fafc; font-weight: 700; }
+    .post-body a { color: var(--primary); text-decoration: underline; }
+    .post-body img { max-width: 100%; border-radius: 12px; margin: 20px 0; }
+
+    .post-cta { max-width: 760px; margin: 60px auto; padding: 40px 30px; background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); border-radius: 20px; text-align: center; color: white; }
+    .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
+    .post-cta p { opacity: 0.9; margin-bottom: 20px; }
+    .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
+    .post-nav a:hover { border-color: var(--primary); color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container">
+        <a href="/blog" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;"><i class="ph ph-arrow-left"></i> 블로그 전체 글</a>
+        <h1 class="section-title" style="color: white; margin-top: 16px;">포지션의 힘 - 버튼이 가장 비싼 자리인 이유</h1>
+        <div class="post-meta">
+          <span class="tag">전략</span>
+          <span><i class="ph ph-calendar"></i> 2026.04.18</span>
+          <span><i class="ph ph-clock"></i> 3분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="post-body">
+      <h2>같은 AJo, 정반대 결정</h2>
+<p>라이브 9-맥스 테이블이 돌아간다. UTG에서 AJo. 노련한 플레이어는 망설임 없이 머크. 한 핸드 후, 같은 AJo가 BTN으로 떨어진다. 이번엔 자신 있게 2.5BB 오픈.</p>
+<p>같은 핸드, 정반대 결정. 답은 단순하다. <strong>자리가 다르다.</strong></p>
+<h2>포지션이 만드는 EV 격차</h2>
+<p>PokerTracker 커뮤니티 데이터마이닝(NL50 풀링, 100만 핸드 단위)에서 포지션별 평균 BB/100 윈레이트 분포는 대략 이렇게 잡힌다.</p>
+<table>
+<thead>
+<tr>
+<th>포지션</th>
+<th>평균 BB/100</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BTN</td>
+<td>+14 ~ +18</td>
+</tr>
+<tr>
+<td>CO</td>
+<td>+6 ~ +10</td>
+</tr>
+<tr>
+<td>HJ</td>
+<td>+1 ~ +4</td>
+</tr>
+<tr>
+<td>MP</td>
+<td>-2 ~ +1</td>
+</tr>
+<tr>
+<td>UTG</td>
+<td>-4 ~ -6</td>
+</tr>
+<tr>
+<td>SB</td>
+<td>-8 ~ -12</td>
+</tr>
+<tr>
+<td>BB</td>
+<td>-5 ~ -8</td>
+</tr>
+</tbody></table>
+<p>스테이크와 풀에 따라 흔들리지만 패턴은 일관된다. UTG와 BTN의 격차는 약 19BB/100. 같은 사람이 같은 실력으로 플레이해도, 단지 자리가 다르다는 이유로 100핸드당 20BB 가까이 갈린다. 1,000핸드면 200BB. 한 바이인이 통째로 사라지거나 추가된다.</p>
+<h2>왜 버튼이 비싸냐</h2>
+<p>세 가지로 좁혀진다.</p>
+<p><strong>1. 정보 우위.</strong> 포스트플랍 모든 스트리트에서 마지막에 액션. 상대를 보고 결정하는 쪽이 보지 않고 결정하는 쪽보다 항상 유리하다. GTOWizard 시뮬레이션에서도 IP(In Position) 측이 OOP 대비 평균 5~7%p 더 많은 에퀴티를 실현한다.</p>
+<p><strong>2. 베팅 컨트롤.</strong> 상대 체크 시 무료 카드를 받거나, 베팅으로 폴드 에쿼티를 챙긴다. OOP는 매번 체크-콜과 체크-레이즈 사이에서 복잡한 결정을 내려야 하고, 그게 EV 손실의 주범이다.</p>
+<p><strong>3. 블러프 효율.</strong> 리버까지 IP를 유지하면 블러프 성공률이 평균 8~12%p 높다. 상대는 &quot;내가 본 적 없는 핸드를 플레이하나&quot;를 계산해야 하고, IP 측은 그 계산을 안 해도 된다.</p>
+<h2>포지션별 표준 오프닝 레인지</h2>
+<p>100BB 캐시 기준 솔버 RFI(Raise First In) 레인지를 단순화하면:</p>
+<table>
+<thead>
+<tr>
+<th>포지션</th>
+<th>RFI 빈도</th>
+<th>대표 핸드</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTG</td>
+<td>12.5%</td>
+<td>88+, AJs+, KQs, AKo+</td>
+</tr>
+<tr>
+<td>MP</td>
+<td>14.8%</td>
+<td>77+, ATs+, KJs+, AQo+</td>
+</tr>
+<tr>
+<td>HJ</td>
+<td>19.0%</td>
+<td>55+, A8s+, KTs+, QJs, AJo+</td>
+</tr>
+<tr>
+<td>CO</td>
+<td>27.5%</td>
+<td>22+, A2s+, K9s+, Q9s+, J9s+</td>
+</tr>
+<tr>
+<td>BTN</td>
+<td>47.5%</td>
+<td>22+, 모든 수티드 A, 모든 수티드 브로드웨이, T9o+</td>
+</tr>
+</tbody></table>
+<p>BTN에서는 핸드의 거의 절반을 오픈한다. UTG의 12.5%와 비교하면 4배 가까운 빈도. 이 빈도 차이가 곧 EV 격차의 원천이다.</p>
+<h2>자주 보는 실수</h2>
+<p><strong>EP에서 마진 핸드 오픈.</strong> UTG에서 KJo, ATo를 오픈하는 플레이어. 솔버는 폴드인데 직관으로 &quot;괜찮은 핸드&quot;라며 던진다. 이런 한 핸드의 누적이 BB/100 윈레이트를 1~2 깎아 먹는다.</p>
+<p><strong>BTN에서 너무 타이트.</strong> 반대 패턴. BTN에서도 UTG처럼 좁게 오픈하는 플레이어. 47.5% 빈도가 부담스럽다는 사람이 많은데, 좁게 가면 그냥 EV를 버리는 셈이다.</p>
+<p><strong>SB에서 콜드콜.</strong> SB에서 BB 상대로 콜드콜 하는 습관. SB는 포스트플랍에서 항상 OOP고, 멀티웨이 보호도 없다. 3-bet 아니면 폴드가 거의 정답이라고 봐도 된다.</p>
+<h2>포지션을 의식하는 훈련</h2>
+<p>본인 핸드 히스토리를 검토할 때, 같은 핸드를 다른 포지션에서 어떻게 플레이했는지 비교해보자. PT4나 HM3 같은 트래커는 포지션별 BB/100을 한 번에 보여준다. 만약 BTN과 UTG 격차가 15 미만이라면 둘 중 하나는 잘못 플레이하고 있다는 신호다. 보통은 BTN이 너무 좁거나 UTG가 너무 넓거나.</p>
+<p>프리플랍 매치업 자체에 대한 감각도 중요한데, <a href="/blog/ak-vs-jj-%ED%81%B4%EB%9E%98%EC%8B%9D-%EC%BD%94%EC%9D%B8%ED%94%8C%EB%A6%BD%EC%9D%98-%EC%A7%84%EC%8B%A4">관련 글: AK vs JJ 정확한 승률</a>에서 다룬 것처럼 &quot;비슷해 보이는 핸드&quot;라도 숫자를 보면 의외로 격차가 크다. 같은 원리가 포지션에도 적용된다.</p>
+<blockquote>
+<p>💡 <strong>핵심 정리</strong></p>
+<ul>
+<li>BTN과 UTG의 BB/100 격차는 약 19. 한 자리 차이가 윈레이트의 가장 큰 변수다</li>
+<li>정보 우위 + 베팅 컨트롤 + 블러프 효율, 세 가지가 IP의 가치를 만든다</li>
+<li>BTN 표준 RFI는 47.5%. UTG의 12.5%와 비교하면 4배 가까운 빈도다</li>
+<li>SB 콜드콜은 거의 항상 EV 마이너스. 3-bet 또는 폴드로 단순화하라</li>
+<li>트래커로 본인 포지션별 윈레이트 격차를 점검하면 약점이 즉시 보인다</li>
+</ul>
+</blockquote>
+
+    </article>
+
+    <div class="post-cta">
+      <h3>K-POKER에서 직접 플레이하세요</h3>
+      <p>방금 읽은 전략을 실전에서 적용해볼 시간입니다.</p>
+      <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-white">지금 시작하기 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <nav class="post-nav">
+      <a href="/blog"><i class="ph ph-list"></i> 블로그 목록</a>
+      <a href="/strategy">전략 가이드 <i class="ph ph-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+</body>
+</html>

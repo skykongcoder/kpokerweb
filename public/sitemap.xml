@@ -34,13 +34,19 @@
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
+  </url>
   <!-- BLOG_AUTO_START -->
   <url>
     <loc>https://kpoker.win/blog</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kpoker.win/blog/position-power-button</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kpoker.win/blog/ak-vs-jj-클래식-코인플립의-진실</loc>
