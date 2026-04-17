@@ -1,6 +1,6 @@
 ---
 title: "AK vs JJ - 클래식 코인플립의 진실"
-slug: "ak-vs-jj-클래식-코인플립의-진실"
+slug: "ak-vs-jj-coinflip-myth"
 date: "2026-04-17"
 category: "hand-analysis"
 excerpt: "AK와 JJ의 프리플랍 매치업은 '코인플립'으로 불리지만 실제 승률은 약 45:55로 JJ가 앞선다. 정확한 확률부터 스택 사이즈별 결정 원칙, 자주 하는 실수까지 데이터로 분석한다."
