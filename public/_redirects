@@ -1,0 +1,6 @@
+# Cloudflare Pages: canonicalize URLs by 301-redirecting .html to clean paths
+/index.html       /            301
+/strategy.html    /strategy    301
+/guide.html       /guide       301
+/notice.html      /notice      301
+/insta.html       /insta       301
