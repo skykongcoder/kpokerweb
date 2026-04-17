@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-POKER 공지사항 - 온라인 홀덤 & 텍사스 홀덤 포커 사이트 소식</title>
   
-  <meta name="description" content="안전한 포커 사이트 K-POKER의 최신 온라인 홀덤 및 텍사스 홀덤 규정 업데이트 및 점검 일정을 확인하세요. 글로벌 1위 플랫폼 소식을 전합니다.">
+  <meta name="description" content="K-POKER 포커 사이트의 최신 업데이트, 이벤트 안내, 정기 점검 소식을 확인하세요. 안전한 온라인 홀덤의 표준.">
   <meta name="keywords" content="온라인 홀덤, 텍사스 홀덤, 포커 사이트, K포커 공지사항, 포커 점검, 홀덤 규정, K-POKER 소식, IDN POKER">
   <meta name="author" content="K-POKER 코리아">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -14,31 +14,44 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="K-POKER 공지사항 - 온라인 홀덤 & 텍사스 홀덤 포커 사이트 소식">
-  <meta property="og:description" content="가장 최신의 안전한 온라인 홀덤 규정 및 알림을 확인하세요.">
+  <meta property="og:description" content="K-POKER의 새로운 소식과 이벤트를 가장 먼저 만나보세요.">
   <meta property="og:url" content="https://kpoker.win/notice">
   <meta property="og:site_name" content="K-POKER">
   <meta property="og:image" content="https://kpoker.win/hero.png">
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "K-POKER 공지사항 - 온라인 홀덤 및 포커 사이트 소식",
-    "url": "https://kpoker.win/notice",
-    "description": "K-POKER 포커 사이트의 공지사항 및 업데이트 내역 모음"
-  }
-  </script>
-
-  <!-- Phosphor Icons & Subresources -->
-  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="light-theme">
+  <link rel="stylesheet" href="/style.css">
 
-  <!-- Minimal Header -->
+  <style>
+    .notice-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; text-align: center; }
+    
+    .notice-list { max-width: 900px; margin: 40px auto; }
+    .notice-item { background: white; border: 1px solid var(--border); border-radius: 16px; margin-bottom: 12px; overflow: hidden; transition: all 0.3s ease; }
+    .notice-item:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    
+    .notice-header-row { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+    .notice-info { display: flex; align-items: center; gap: 12px; flex: 1; }
+    
+    .tag { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+    .tag.critical { background: #fef2f2; color: #ef4444; border: 1px solid #fee2e2; }
+    .tag.update { background: #f0fdf4; color: #22c55e; border: 1px solid #dcfce7; }
+    .tag.info { background: #eff6ff; color: var(--primary); border: 1px solid #dbeafe; }
+    
+    .notice-title { font-weight: 700; color: var(--text-main); font-size: 1rem; }
+    .notice-date { font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-en); }
+    
+    .notice-content { display: none; padding: 24px 24px 32px; border-top: 1px solid var(--border); background: #f8fafc; color: var(--text-muted); line-height: 1.8; }
+    .notice-item.expanded .notice-content { display: block; }
+    .notice-item.expanded .ph-caret-down { transform: rotate(180deg); }
+    
+    .ph-caret-down { transition: transform 0.3s; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
   <header class="header">
     <div class="header-container">
       <div style="display: flex; align-items: center;">
@@ -47,216 +60,146 @@
           <strong>KP</strong><span>OKER</span>
         </a>
       </div>
-      
       <nav class="header-nav">
         <a href="/strategy">게임 방법 & 전략</a>
         <a href="/guide">사용자 가이드</a>
         <a href="/notice" class="active">공지사항</a>
       </nav>
-
       <div class="header-actions">
-        <a href="https://kpoker.win/ko" target="_blank" rel="noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">가입하고 시작하기</a>
+        <a href="https://kpoker.win/ko" target="_blank" rel="noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
       </div>
     </div>
   </header>
 
-  <!-- Notice Section -->
-  <main class="notice-page main-page-padding-mobile" style="padding-top: 100px; padding-bottom: 80px; min-height: 80vh; background: #f8fafc;">
-    <div class="container" style="max-width: 800px;">
-      
-      <a href="/" class="back-link" style="display: inline-block; margin-bottom: 20px; font-weight: 600; color: var(--text-muted); text-decoration: none; transition: color 0.2s;"><i class="ph ph-arrow-left"></i> 홈으로 돌아가기</a>
-      
-      <div class="notice-header notice-header-mobile" style="background: var(--primary); color: white; padding: 30px; border-radius: 12px 12px 0 0;">
-        <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px;">K-POKER 온라인 홀덤 공지사항</h1>
-        <p style="opacity: 0.9; margin: 0;">포커 사이트의 최신 뉴스와 업데이트를 확인하세요</p>
+  <main>
+    <section class="notice-hero">
+      <div class="container">
+        <div class="reveal">
+          <span class="pill-badge" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">Announcement</span>
+          <h1 class="section-title" style="color: white;">K-POKER 공식 소식창</h1>
+          <p class="section-desc" style="color: rgba(255,255,255,0.8);">중요 공지 및 업데이트 내역을 가장 빠르게 전달해 드립니다.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="accordion-list" style="background: white; border-radius: 0 0 12px 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); border: 1px solid var(--border); border-top: none;">
+    <section style="padding: 40px 0 100px; background: #f8fafc;">
+      <div class="container">
         
-        <!-- Item 1 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="badge-new">NEW</span>
-              <span class="title-text">신규 게임 조커스핀 추가 안내</span>
+        <div class="notice-list stagger-group">
+          
+          <!-- Item 1 (Critical) -->
+          <div class="notice-item stagger-item">
+            <div class="notice-header-row" onclick="this.parentElement.classList.toggle('expanded')">
+              <div class="notice-info">
+                <span class="tag critical">Critical</span>
+                <span class="notice-title">공식 가이드 및 추천인 코드 [1122] 적용 안내</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="notice-date">2026.04.17</span>
+                <i class="ph ph-caret-down"></i>
+              </div>
             </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              KPOKER에 새롭게 조커스핀 게임이 업데이트 되었습니다! 많은 이용 부탁드립니다.
+            <div class="notice-content">
+              <p>안녕하세요. K-POKER 운영팀입니다.<br><br>
+              현재 공식 홈페이지 및 링크를 통해 가입하시는 모든 유저분들께서는 <strong>추천인 코드 [ 1122 ]</strong>를 입력하셔야만 정상적인 신규 보너스(첫충 50% 등) 및 VIP 혜택 적용이 가능합니다.<br><br>
+              코드 미입력 시 발생하는 보너스 누락에 대해서는 자동 지급이 어려울 수 있으니 가입 시 반드시 확인 부탁드립니다.<br>
+              감사합니다.</p>
             </div>
           </div>
+
+          <!-- Item 2 (Update) -->
+          <div class="notice-item stagger-item">
+            <div class="notice-header-row" onclick="this.parentElement.classList.toggle('expanded')">
+              <div class="notice-info">
+                <span class="tag update">Update</span>
+                <span class="notice-title">정기 시스템 안정화 작업 완료 보고</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="notice-date">2026.04.15</span>
+                <i class="ph ph-caret-down"></i>
+              </div>
+            </div>
+            <div class="notice-content">
+              <p>쾌적한 게임 환경을 위한 서버 최적화 작업이 완료되었습니다.<br><br>
+              - 네트워크 응답 속도(Latency) 개선<br>
+              - 모바일 브라우저 최적화 패치<br>
+              - 보안 방화벽 업데이트<br><br>
+              앞으로도 최상의 플레이 환경을 제공하기 위해 노력하겠습니다.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 (Info) -->
+          <div class="notice-item stagger-item">
+            <div class="notice-header-row" onclick="this.parentElement.classList.toggle('expanded')">
+              <div class="notice-info">
+                <span class="tag info">Info</span>
+                <span class="notice-title">USDT(테더) 전용 지갑 입출금 절차 안내</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="notice-date">2026.04.11</span>
+                <i class="ph ph-caret-down"></i>
+              </div>
+            </div>
+            <div class="notice-content">
+              <p>최근 이용자가 급증함에 따라 기존 원화 입금 외에도 <strong>USDT(테더)</strong> 입출금 서비스를 강화하였습니다.<br><br>
+              익명성과 전송 속도가 보장되는 USDT 이용을 권장해 드리며, 상세한 지갑 주소 생성 및 전송 방법은 [사용자 가이드] 페이지를 참고해 주시기 바랍니다.</p>
+              <a href="/guide" class="btn-primary" style="padding: 10px 20px; font-size: 0.85rem; margin-top: 15px; display: inline-block;">가이드 보러가기</a>
+            </div>
+          </div>
+
+          <!-- Item 4 (Update) -->
+          <div class="notice-item stagger-item">
+            <div class="notice-header-row" onclick="this.parentElement.classList.toggle('expanded')">
+              <div class="notice-info">
+                <span class="tag update">Update</span>
+                <span class="notice-title">IDN POKER 글로벌 서버 연동 작업 공지</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <span class="notice-date">2026.04.05</span>
+                <i class="ph ph-caret-down"></i>
+              </div>
+            </div>
+            <div class="notice-content">
+              <p>한국 로컬 서버의 안정성을 넘어 글로벌 IDN 서버와의 다이렉트 연동을 통해 더욱 거대한 팟(Pot)과 수천 명의 실시간 동시 접속 환경이 구축되었습니다.<br><br>
+              이제 전 세계 플레이어들과 실력을 겨뤄보세요!</p>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Item 2 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="badge-new">NEW</span>
-              <span class="title-text">[필수 안내] IDN 포커 공식 칩 교환 비율 및 베팅 기준 안내</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              새로운 칩 교환 비율 및 베팅 기준은 KPOKER 공식 고객센터를 통해 확인하실 수 있습니다. 이용에 착오 없으시길 바랍니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="badge-new">NEW</span>
-              <span class="title-text">[경고 필독] IDN 공식 클린 게임 정책: 칩 덤핑 행위 제재 공지</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              다계정을 활용한 어뷰징 및 칩 덤핑 행위 적발 시 강력한 제재 조치가 취해지며, 즉각 계정 정지가 진행됨을 알려드립니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="title-text">[필독] 자금세탁방지를 위한 롤링 100% 규정 안내</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              머니상 및 자금 세탁 방지를 위하여 모든 입금액은 100% 롤링(베팅) 조건이 적용된 후 출금이 가능합니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 5 (Expanded by default) -->
-        <div class="accordion-item expanded">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="title-text">[공식 인증] Kpoker가 선사하는 IDN의 15년 기술력과 아시아 1위 포커 플랫폼</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body" style="max-height: 1000px; padding: 20px;">
-            <div class="content-inner" style="line-height: 1.7; color: #475569;">
-              <p style="font-weight: 800; color: #1e293b; margin-bottom: 10px;">I. Kpoker와 IDN Poker의 강력한 만남</p>
-              <p style="margin-bottom: 25px;">저희 Kpoker는 글로벌 포커 플랫폼 IDN의 공식 라이선스 파트너로서, 15년 동안 축적된 IDN의 압도적인 신뢰도와 첨단 보안 기술을 한국 유저분들에게 독점 제공하게 되었음을 자부합니다. IDN의 글로벌 위상을 기반으로 가장 안전하고 깨끗한 게이밍 환경을 약속합니다.</p>
-              
-              <p style="font-weight: 800; color: #1e293b; margin-bottom: 10px;">II. IDN의 글로벌 2위 위상과 기술 우위</p>
-              <p style="margin-bottom: 15px;">Kpoker가 연결된 IDN Poker는 글로벌 포커 산업의 기준을 선도하고 있습니다.</p>
-              <ul style="list-style-type: none; padding: 0; margin-bottom: 20px;">
-                <li style="position: relative; padding-left: 15px; margin-bottom: 8px;">
-                  <span style="position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: var(--primary); border-radius: 50%;"></span>
-                  <strong>세계적 규모:</strong> 포커스카우트(PokerScout) 통계 기준, IDN은 전 세계 이용자 수 2위를 기록하고 있습니다.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="title-text">평생주소 K포커.com 안내</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              언제 어디서든 막힘 없이 안전하게 접속이 가능한 최신 도메인을 K포커.com에서 확인하세요.
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 7 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="title-text">[공지] USDT 암호화폐 입출금 서비스 오픈 안내</span>
-            </div>
-            <span class="date">2026.04.11</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              익명성과 속도를 보장하는 USDT (테더) 암호화폐 입출금 서비스가 KPOKER에 공식 도입되었습니다!
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 8 -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="title-wrap">
-              <span class="title-text" style="text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">평생도메인 주소 (K포커.com) - 접속이 원활하지 않을 경우, 평생주소 페이지에서 최신 접속 도메인을 안내받을 수 있습니다</span>
-            </div>
-            <span class="date">2025.11.07</span>
-          </div>
-          <div class="accordion-body">
-            <div class="content-inner">
-              도메인 차단 시 대처 방법 및 평생 도메인 안내: 언제나 'K포커.com'을 기억해 주세요.
-            </div>
-          </div>
+        <div style="text-align: center; margin-top: 50px;" class="reveal">
+          <p style="color: var(--text-muted); font-size: 0.95rem;">지난 공지사항은 고객센터를 통해 확인하실 수 있습니다.</p>
         </div>
 
       </div>
-    </div>
+    </section>
   </main>
 
-  <style>
-    /* Notice Page Accordion Styling */
-    .accordion-item { border-bottom: 1px solid var(--border); transition: 0.3s; }
-    .accordion-item:last-child { border-bottom: none; }
-    .accordion-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 25px 20px; cursor: pointer; transition: background 0.2s; }
-    .accordion-header:hover { background: #fcfcfc; }
-    .title-wrap { display: flex; align-items: flex-start; gap: 12px; flex: 1; padding-right: 20px;}
-    .badge-new { background: #ef4444; color: white; font-size: 0.70rem; font-weight: 800; padding: 3px 6px; border-radius: 4px; line-height: 1; margin-top: 3px; letter-spacing: 0.5px;}
-    .title-text { font-weight: 600; color: var(--text-main); font-size: 1.05rem; line-height: 1.5; transition: color 0.2s;}
-    .date { color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-en); white-space: nowrap; margin-top: 2px;}
-    
-    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; background: #fafafa; }
-    .content-inner { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-    
-    .accordion-item.expanded .accordion-header { border-bottom: 1px solid var(--border); }
-    .accordion-item.expanded .title-text { color: var(--primary); font-weight: 700; }
-    .back-link:hover { color: var(--text-main); }
-    
-    @media (max-width: 640px) {
-      .accordion-header { flex-direction: column; gap: 10px; }
-      .date { margin-top: 5px; align-self: flex-start;}
-    }
-  </style>
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700; transition: color 0.2s;">🃏 게임 전략 바로가기</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700; transition: color 0.2s;">📖 사용자 가이드 바로가기</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
 
-  <script>
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const body = item.querySelector('.accordion-body');
-        
-        const isExpanded = item.classList.contains('expanded');
-        
-        // Close all
-        document.querySelectorAll('.accordion-item').forEach(otherItem => {
-            otherItem.classList.remove('expanded');
-            otherItem.querySelector('.accordion-body').style.maxHeight = '0';
-            otherItem.querySelector('.accordion-body').style.padding = '0 20px';
-        });
-
-        // Open clicked one if it wasn't expanded
-        if (!isExpanded) {
-            item.classList.add('expanded');
-            body.style.padding = '20px';
-            body.style.maxHeight = body.scrollHeight + 60 + 'px';
+  <script type="module">
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal, .stagger-group').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

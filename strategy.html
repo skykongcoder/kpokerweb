@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>텍사스 홀덤 필승 전략 - K-POKER 온라인 홀덤 가이드</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍사스 홀덤 필승 전략 - K-POKER 온라인 홀덤 마스터 클래스</title>
   
   <!-- SEO & Social Meta Tags -->
   <meta name="description" content="텍사스 홀덤 초보자를 위한 게임 방법부터 승률을 올리는 최적의 온라인 홀덤 필승 전략! 안전한 K-POKER 포커 사이트가 제공하는 마스터 클래스.">
@@ -55,8 +55,36 @@
   <link rel="preconnect" href="https://unpkg.com">
   <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
   <link rel="stylesheet" href="/style.css" />
+  
+  <style>
+    .strategy-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 120px 0 80px; color: white; position: relative; overflow: hidden; }
+    .strategy-hero::before { content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    
+    .ranking-card { background: white; border-radius: 16px; padding: 24px; box-shadow: var(--shadow-md); border: 1px solid var(--border); transition: all 0.3s ease; }
+    .ranking-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .ranking-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; background: #f1f5f9; color: var(--text-muted); margin-bottom: 12px; display: inline-block; }
+    .ranking-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main); }
+    .ranking-example { font-family: var(--font-en); font-size: 1.3rem; letter-spacing: 2px; color: var(--primary); font-weight: 700; background: #f8fafc; padding: 10px; border-radius: 8px; text-align: center; }
+    
+    .strategy-section-title { font-size: 2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 40px; text-align: center; position: relative; }
+    .strategy-section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+    
+    .hand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    
+    .pro-bento { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .bento-item { background: white; border-radius: 20px; padding: 32px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .bento-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
+    .bento-item h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .bento-item.blue { background: linear-gradient(135deg, #0f4ab9 0%, #1e3a8a 100%); color: white; }
+    .bento-item.blue h3 { color: white; }
+    .bento-item.blue p { color: rgba(255,255,255,0.8); }
+    
+    @media (max-width: 900px) {
+      .pro-bento { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="light-theme">
+<body>
 
   <!-- Header -->
   <header class="header">
@@ -73,192 +101,185 @@
         <a href="/guide">사용자 가이드</a>
         <a href="/notice">공지사항</a>
       </nav>
-
+      
       <div class="header-actions">
-        <a href="https://kpoker.win/ko" target="_blank" rel="noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block; text-decoration:none;">가입하고 시작하기</a>
+        <a href="https://kpoker.win/ko" target="_blank" rel="noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">무료 회원가입</a>
       </div>
     </div>
   </header>
 
-  <!-- Strategy Content -->
-  <main class="main-page-padding-mobile" style="padding-top: 100px; padding-bottom: 80px; min-height: 80vh; background: #f8fafc;">
-    <div class="container" style="max-width: 900px;">
-      
-      <a href="/" class="back-link" style="display: inline-block; margin-bottom: 20px; font-weight: 600; color: var(--text-muted); text-decoration: none; transition: color 0.2s;"><i class="ph ph-arrow-left"></i> 홈으로 돌아가기</a>
-      
-      <div class="strategy-header guide-header-mobile" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 50px 30px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-md); margin-bottom: 40px; position: relative; overflow: hidden;">
-        <div style="position: absolute; bottom: -20px; right: -20px; opacity: 0.05; transform: rotate(15deg); font-size: 15rem;"><i class="ph-fill ph-spades"></i></div>
-        <div style="font-size: 3rem; margin-bottom: 10px; color: #fbbf24; position: relative; z-index: 2;"><i class="ph-fill ph-crown"></i></div>
-        <h1 style="font-size: 2.3rem; font-weight: 900; margin-bottom: 15px; position: relative; z-index: 2;">최고의 온라인 홀덤 & 텍사스 홀덤 전략 매뉴얼</h1>
-        <p style="opacity: 0.9; font-size: 1.1rem; margin: 0; position: relative; z-index: 2;">가장 안전한 텍사스 홀덤 포커 사이트가 알려주는 승률 100% 가이드.</p>
+  <main>
+    <!-- Hero Section -->
+    <section class="strategy-hero">
+      <div class="container">
+        <div class="fade-in-up text-center">
+          <span class="pill-badge" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">Master Class</span>
+          <h1 class="hero-title" style="color: white;">성공적인 홀덤을 위한<br><span class="text-gradient">압도적 필승 전략 매뉴얼</span></h1>
+          <p class="hero-desc" style="color: rgba(255,255,255,0.8); margin-left: auto; margin-right: auto;">단순한 운이 아닌, 실력과 통계로 승리하십시오. K-POKER가 15년 노하우를 공개합니다.</p>
+        </div>
       </div>
+    </section>
 
-      <!-- Quick Nav -->
-      <div class="guide-nav" style="display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none;">
-        <a href="#rules" class="btn-nav" style="white-space: nowrap; border-radius: 20px; padding: 10px 20px;">1. 홀덤 게임 규칙</a>
-        <a href="#hands" class="btn-nav" style="white-space: nowrap; border-radius: 20px; padding: 10px 20px;">2. 포커 족보 순위</a>
-        <a href="#strategy" class="btn-nav" style="white-space: nowrap; border-radius: 20px; padding: 10px 20px;">3. 핵심 승률 전략</a>
+    <!-- Quick Navigation -->
+    <section style="background: white; padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 75px; z-index: 100;">
+      <div class="container">
+        <div style="display: flex; justify-content: center; gap: 24px; overflow-x: auto; white-space: nowrap; scrollbar-width: none;">
+          <a href="#process" style="font-weight: 700; color: var(--text-muted);">게임 프로세스</a>
+          <a href="#ranking" style="font-weight: 700; color: var(--text-muted);">포커 족보</a>
+          <a href="#tactics" style="font-weight: 700; color: var(--text-muted);">상황별 전술</a>
+          <a href="#psychology" style="font-weight: 700; color: var(--text-muted);">심리 통제</a>
+        </div>
       </div>
+    </section>
 
-      <!-- Section 1: Rules -->
-      <section id="rules" class="guide-box guide-box-mobile" style="background: white; padding: 40px; border-radius: 16px; margin-bottom: 30px; box-shadow: var(--shadow-sm); border: 1px solid var(--border);">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
-          <div style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem;">1</div>
-          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">텍사스 홀덤 기본 프로세스</h2>
-        </div>
-        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem;">
-          텍사스 홀덤은 손에 쥐는 <strong>개인 카드 2장(Hole Cards)</strong>과, 테이블 중앙에 공유되는 <strong>보드 공유 카드 5장(Community Cards)</strong>을 조합하여 가장 높은 족보(5장 완성)를 만드는 사람이 승리하는 게임입니다.
-        </p>
-
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-          <div style="padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
-            <h4 style="font-weight: 800; color: #1e293b; margin-bottom: 8px;">[1단계] 프리플랍 (Pre-flop)</h4>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">딜러가 모든 플레이어에게 2장의 개인 카드를 비공개로 나누어 줍니다. 플레이어들은 이 두 장만 보고 첫 번째 베팅 라운드(콜, 레이즈, 폴드)를 진행합니다.</p>
+    <!-- Process Section -->
+    <section id="process" style="padding: 100px 0; background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">텍사스 홀덤 공식 규칙</h2>
+        <div class="stagger-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+          <div class="stagger-item" style="background: white; padding: 32px; border-radius: 20px; box-shadow: var(--shadow-sm);">
+            <div style="width: 48px; height: 48px; background: #eef2ff; color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px;">01</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">프리플랍 (Pre-flop)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">모든 플레이어가 2장의 개인 카드를 받습니다. 자신의 카드만 확인한 상태에서 첫 번째 베팅이 이루어집니다.</p>
           </div>
-          <div style="padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
-            <h4 style="font-weight: 800; color: #1e293b; margin-bottom: 8px;">[2단계] 플랍 (Flop)</h4>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">테이블 중앙에 3장의 커뮤니티 카드가 오픈됩니다. 이 3장과 내 손의 2장을 조합하며 상황을 지켜본 후 두 번째 베팅을 진행합니다.</p>
+          <div class="stagger-item" style="background: white; padding: 32px; border-radius: 20px; box-shadow: var(--shadow-sm);">
+            <div style="width: 48px; height: 48px; background: #fdf2f2; color: #ef4444; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px;">02</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">플랍 (Flop)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">테이블 중앙에 3장의 공유 카드가 공개됩니다. 개인 카드와 조합하여 족보의 완성 가능성을 판단합니다.</p>
           </div>
-          <div style="padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
-            <h4 style="font-weight: 800; color: #1e293b; margin-bottom: 8px;">[3단계] 턴 (Turn) & [4단계] 리버 (River)</h4>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">턴에서는 4번째 카드가, 리버에서는 마지막 5번째 카드가 한 장씩 차례로 오픈됩니다. 각 카드가 열릴 때마다 베팅 기회가 주어지며, 치열한 눈치 싸움이 벌어집니다.</p>
+          <div class="stagger-item" style="background: white; padding: 32px; border-radius: 20px; box-shadow: var(--shadow-sm);">
+            <div style="width: 48px; height: 48px; background: #f0fdf4; color: #22c55e; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px;">03</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">턴 & 리버 (Turn & River)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">4번째와 마지막 5번째 공유 카드가 순차적으로 열립니다. 각 단계마다 치열한 전략적 베팅이 이어집니다.</p>
           </div>
-          <div style="padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #ef4444;">
-            <h4 style="font-weight: 800; color: #1e293b; margin-bottom: 8px;">[최종] 쇼다운 (Showdown)</h4>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">마지막 베팅 라운드까지 2명 이상의 플레이어가 포기(Fold)하지 않고 남았다면, 가지고 있는 카드를 오픈하여 승패를 가립니다. 가장 강한 패를 가진 플레이어가 판돈(Pot)을 모두 가져갑니다.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2: Hand Rankings -->
-      <section id="hands" class="guide-box guide-box-mobile" style="background: white; padding: 40px; border-radius: 16px; margin-bottom: 30px; box-shadow: var(--shadow-sm); border: 1px solid var(--border);">
-         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 25px;">
-          <div style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem;">2</div>
-          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">포커 족보 (Hand Rankings) 요약</h2>
-        </div>
-        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem;">족보는 가장 높은 순위부터 낮은 순서로 1위부터 10위까지 정해져 있습니다. 꼭 외워두셔야 합니다.</p>
-
-        <div class="hand-list" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
-          
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fffbeb; border: 1px solid #fde68a; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: #d97706; font-size:1.1rem;">1. 로얄 스트레이트 플러시 (Royal Flush)</strong><div style="font-size:0.85rem; color: #b45309; margin-top:3px;">같은 무늬이면서 10, J, Q, K, A 연속된 5장</div></div>
-            <div style="font-size: 1.3rem;">♠A ♠K ♠Q ♠J ♠10</div>
-          </div>
-          
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: var(--text-main);">2. 스트레이트 플러시 (Straight Flush)</strong><div style="font-size:0.85rem; color: var(--text-muted); margin-top:3px;">무늬가 모두 같으면서 연속된 5장 (예: 빨강 5~9)</div></div>
-            <div style="font-size: 1.3rem; color: #ef4444;">♥5 ♥6 ♥7 ♥8 ♥9</div>
-          </div>
-          
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: var(--text-main);">3. 포카드 (Four of a Kind)</strong><div style="font-size:0.85rem; color: var(--text-muted); margin-top:3px;">모양에 상관없이 동일한 숫자 4장</div></div>
-            <div style="font-size: 1.3rem;">♣K ♦K ♥K ♠K</div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: var(--text-main);">4. 풀 하우스 (Full House)</strong><div style="font-size:0.85rem; color: var(--text-muted); margin-top:3px;">동일한 숫자 3장(트리플) + 다른 동일한 숫자 2장(원페어)</div></div>
-            <div style="font-size: 1.3rem;">♠10 ♥10 ♦10 ♣7 ♠7</div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: var(--text-main);">5. 플러시 (Flush) / 6. 스트레이트 (Straight)</strong><div style="font-size:0.85rem; color: var(--text-muted); margin-top:3px;">무늬가 같은 5장 / 무늬 상관없이 연속된 숫자 5장</div></div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; background: #fafafa; border: 1px solid #e2e8f0; padding: 15px 20px; border-radius: 8px;">
-            <div><strong style="color: var(--text-main);">7. 트리플 / 8. 투페어 / 9. 원페어 / 10. 하이카드</strong><div style="font-size:0.85rem; color: var(--text-muted); margin-top:3px;">기본적인 족보 조합으로 가장 흔하게 발생함</div></div>
+          <div class="stagger-item" style="background: white; padding: 32px; border-radius: 20px; box-shadow: var(--shadow-sm);">
+            <div style="width: 48px; height: 48px; background: #fffbeb; color: #fbbf24; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px;">04</div>
+            <h3 style="font-weight: 800; margin-bottom: 12px;">쇼다운 (Showdown)</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">마지막까지 남은 플레이어들이 카드를 공개합니다. 5장 조합이 가장 높은 사람이 전체 판돈을 획득합니다.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Section 3: Pro Strategy Encyclopedia -->
-      <section id="strategy" class="guide-box guide-box-mobile" style="background: white; padding: 40px; border-radius: 16px; margin-bottom: 30px; box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border 0.3s;" onmouseover="this.style.borderColor='#10b981'" onmouseout="this.style.borderColor='transparent'">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-          <div style="background: #10b981; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem;">3</div>
-          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">포커 마스터 백과사전: 실전 핵심 전략</h2>
+    <!-- Rankings Section -->
+    <section id="ranking" style="padding: 100px 0; background: white;">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">필수 암기: 포커 족보 순위</h2>
+        <div class="hand-grid stagger-group">
+          <!-- Item 1 -->
+          <div class="ranking-card stagger-item">
+            <span class="ranking-badge" style="background: #fef3c7; color: #92400e;">Tier 1 - Invincible</span>
+            <h3 class="ranking-title">로얄 스트레이트 플러시</h3>
+            <div class="ranking-example">♠A ♠K ♠Q ♠J ♠10</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">같은 무늬의 A, K, Q, J, 10 조합. 포커의 정점이자 무적의 패.</p>
+          </div>
+          <!-- Item 2 -->
+          <div class="ranking-card stagger-item">
+             <span class="ranking-badge" style="background: #fef3c7; color: #92400e;">Tier 1</span>
+            <h3 class="ranking-title">스트레이트 플러시</h3>
+            <div class="ranking-example" style="color: #ef4444;">♥9 ♥8 ♥7 ♥6 ♥5</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">같은 무늬이면서 연속된 숫자 5장 조합.</p>
+          </div>
+          <!-- Item 3 -->
+          <div class="ranking-card stagger-item">
+            <span class="ranking-badge">Tier 2 - Superior</span>
+            <h3 class="ranking-title">포카드 (Four of a Kind)</h3>
+            <div class="ranking-example">♣K ♦K ♥K ♠K</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">모양에 상관없이 동일한 숫자 4장 조합.</p>
+          </div>
+          <!-- Item 4 -->
+          <div class="ranking-card stagger-item">
+            <span class="ranking-badge">Tier 2</span>
+            <h3 class="ranking-title">풀 하우스 (Full House)</h3>
+            <div class="ranking-example">♠10 ♥10 ♦10 ♣7 ♠7</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">동일 숫자 3장(트리플) + 동일 숫자 2장(원페어).</p>
+          </div>
+          <!-- Item 5 -->
+          <div class="ranking-card stagger-item">
+            <span class="ranking-badge">Tier 3 - Strong</span>
+            <h3 class="ranking-title">플러시 (Flush)</h3>
+            <div class="ranking-example" style="color: #ef4444;">♥A ♥J ♥9 ♥5 ♥2</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">숫자에 상관없이 동일한 무늬 5장 조합.</p>
+          </div>
+          <!-- Item 6 -->
+          <div class="ranking-card stagger-item">
+            <span class="ranking-badge">Tier 3</span>
+            <h3 class="ranking-title">스트레이트 (Straight)</h3>
+            <div class="ranking-example">♠7 ♥6 ♦5 ♣4 ♠3</div>
+            <p style="margin-top:12px; font-size: 0.85rem; color: var(--text-muted);">무늬에 상관없이 연속된 숫자 5장 조합.</p>
+          </div>
         </div>
-        
-        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; font-size: 1.05rem;">
-          수많은 플레이어들 사이에서 칩을 쌓기 위해서는 감에 의존해서는 안 됩니다. 프로 겜블러들이 수만 번의 판을 거치며 완성한 <strong>상황별 필승 전략 백과사전</strong>을 통달하세요.
-        </p>
+      </div>
+    </section>
 
-        <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-          
-          <!-- Category 1 -->
-          <div style="background: var(--bg-alt); padding: 25px; border-radius: 12px; border-left: 5px solid #3b82f6;">
-            <h3 style="font-weight: 800; font-size:1.25rem; color:#1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="ph-fill ph-brain" style="color: #3b82f6;"></i> VOL 1. 멘탈리티 & 뱅크롤 (자산 관리)</h3>
-            <ul style="list-style-type: none; padding: 0; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 뱅크롤 매니지먼트 (Bankroll Management):</strong> 절대 감당 가능한 돈 그 이상으로 테이블에 앉지 마세요. 프로들은 자신이 보유한 대기 자금(뱅크롤)의 <u style="color: #ef4444;">1/20(5%) 이하</u>만 단일 테이블에 바이인(Buy-in)합니다. 파산 리스크를 0%로 만드는 기적의 수학입니다.</li>
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 틸트(Tilt) 통제:</strong> 억울하게 패배(배드 비트)한 후 분노하여 무리한 베팅을 하는 멘탈 붕괴 상태를 '틸트'라고 합니다. 틸트가 왔다고 느껴지면 게임을 즉시 종료하는 것이 돈을 버는 길입니다.</li>
-              <li><strong style="color: var(--text-main);">🔹 감정적인 블러프 자제:</strong> "영화처럼 상대방을 크게 속여서 이긴다"는 환상을 버리세요. 꾸준히 수학적 확률(오즈)에 따라 승부하는 플레이어가 결과적으로 수십 배의 수익을 냅니다.</li>
-            </ul>
+    <!-- Professional Tactics (Bento) -->
+    <section id="tactics" style="padding: 100px 0; background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="strategy-section-title reveal">프로 플레이어의 마스터링 전술</h2>
+        <div class="pro-bento stagger-group">
+          <div class="bento-item blue stagger-item">
+            <h3><i class="ph ph-target"></i> 포지션의 절대 우위 (Position Advantage)</h3>
+            <p>딜러 버튼(BTN)에 가까울수록 당신의 승률은 기하급수적으로 상승합니다. 다른 플레이어의 액션을 모두 지켜본 뒤 마지막에 결정을 내릴 수 있는 권력은 홀덤에서 가장 강력한 무기입니다.</p>
+            <div style="margin-top: 20px; font-weight: 800; font-size:0.9rem; color: #facc15;">CORE TIP: 버튼 자리에서는 중간 수준의 카드로도 적극적으로 블라인드를 스틸하십시오.</div>
           </div>
-
-          <!-- Category 2 -->
-          <div style="background: var(--bg-alt); padding: 25px; border-radius: 12px; border-left: 5px solid #8b5cf6;">
-            <h3 style="font-weight: 800; font-size:1.25rem; color:#1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="ph-fill ph-crosshair" style="color: #8b5cf6;"></i> VOL 2. 프리플랍 (Pre-flop) 전술과 포지션</h3>
-            <ul style="list-style-type: none; padding: 0; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 압도적인 포지션의 힘 (Position):</strong> 딜러 버튼(BTN) 자리는 항상 다른 사람들의 베팅을 확인하고 맨 마지막에 움직이는 황금 자리입니다. <u style="color: #8b5cf6;">얼리 포지션에서는 매우 좋은 패로만, 레이트 포지션에서는 중간 패로도 과감히</u> 베팅하여 판을 장악하세요.</li>
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 '림핑(Limp)'은 금물입니다:</strong> 누가 베팅한 블라인드만 조용히 '콜(따당)' 해서 숨어 들어가는 행동을 림핑이라고 합니다. 참가하고 싶다면 무조건 레이즈(Raise)로 주도권을 잡고, 자신이 없다면 미련 없이 죽(Fold)으세요.</li>
-              <li><strong style="color: var(--text-main);">🔹 쓰리벳 (3-Bet) 기본:</strong> 앞사람이 레이즈를 쳤을 때, 내가 한 번 더 레이즈를 치는 고급 공격입니다. 프리미엄 패(AK, QQ, KK) 외에도 가끔씩 애매한 패로 블러핑 쓰리벳을 섞어 주어야 내 패를 읽히지 않습니다.</li>
-            </ul>
+          <div class="bento-item stagger-item">
+            <h3><i class="ph ph-chart-bar"></i> 팟 오즈 계산</h3>
+            <p>베팅 금액 대비 내가 이겼을 때 얻을 수 있는 보상의 비율을 계산하십시오. 확률이 비용보다 높을 때만 '콜'을 외치는 것이 수학적 승리로 가는 유일한 길입니다.</p>
           </div>
-
-          <!-- Category 3 -->
-          <div style="background: var(--bg-alt); padding: 25px; border-radius: 12px; border-left: 5px solid #ef4444;">
-            <h3 style="font-weight: 800; font-size:1.25rem; color:#1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="ph-fill ph-sword" style="color: #ef4444;"></i> VOL 3. 포스트플랍 (Post-flop) 테크닉</h3>
-            <ul style="list-style-type: none; padding: 0; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 C-Bet (연속 베팅):</strong> 게임 시작 전부터 레이즈로 팟(판돈)을 키운 사람은, 커뮤니티 카드가 오픈된 뒤 내 패가 맞지 않았더라도 또 베팅을 이어가야 합니다. 이를 무서워한 상대방이 죽게 만드는 강력한 기초 무기입니다.</li>
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 세미 블러핑 (Semi-Bluffing):</strong> 지금 당장은 쓰레기 패지만 턴/리버에서 '스트레이트'나 '플러시'가 완성될 확률이 보일 때 상대에게 강하게 베팅하는 고도의 기술입니다. 콜을 받아도 이길 확률이 있기 때문입니다.</li>
-              <li><strong style="color: var(--text-main);">🔹 팟 오즈 (Pot Odds)와 아웃츠 수 계산:</strong> 내가 판돈을 먹기 위해 지금 지불해야 할 금액 비율(비용)과, 확률(오즈)을 저울질하세요. 배당률이 좋지 않은 역배당 콜은 파멸의 지름길입니다.</li>
-            </ul>
+          <div class="bento-item stagger-item">
+            <h3><i class="ph ph-mask-happy"></i> 블러핑의 기술</h3>
+            <p>상대방이 당신의 패를 읽지 못하게 하십시오. 단순히 나쁜 패로 크게 거는 것이 블러핑이 아닙니다. 일관된 베팅 패턴을 통해 상대방을 심리적 딜레마에 빠뜨리는 예술입니다.</p>
           </div>
-
-          <!-- Category 4 -->
-          <div style="background: var(--bg-alt); padding: 25px; border-radius: 12px; border-left: 5px solid #10b981;">
-            <h3 style="font-weight: 800; font-size:1.25rem; color:#1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><i class="ph-fill ph-users-three" style="color: #10b981;"></i> VOL 4. 플레이어 성향별 완벽 카운터법</h3>
-            <ul style="list-style-type: none; padding: 0; margin: 0; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 극수비형 (Tight Aggressive) 상대:</strong> 좋은 카드가 안 들어오면 계속 기권하다가 한 번 물었을 때 강하게 베팅하는 모범생 타입. 이런 사람이 갑자기 레이즈를 치면 절대 맞붙지 말고 피하세요. 대신 자주 폴드하므로 스틸(블라인드 뺏기)의 좋은 먹잇감입니다.</li>
-              <li style="margin-bottom: 12px;"><strong style="color: var(--text-main);">🔹 폭주기관차 (Loose Aggressive/Maniac) 상대:</strong> 아무 패나 들고 무지성으로 레이즈를 남발하는 유저. 감정적으로 대응하지 마세요. 아주 확실하게 높은 패가 떴을 때 베팅을 받아주어(콜) 칩을 한 번에 모두 강탈하세요.</li>
-              <li><strong style="color: var(--text-main);">🔹 콜링 스테이션 (Calling Station) 상대:</strong> 내가 블러핑을 하든 올인을 하든 돈을 끝까지 내고 따라오는 "안 죽는" 유저들입니다. 이런 유저를 상대로는 절대 <u style="color: #10b981;">거짓말(블러핑)을 치지 마세요.</u> 진짜 좋은 패를 들었을 때 평소보다 세게 쳐서 자본을 흡수하세요.</li>
-            </ul>
+          <div class="bento-item blue stagger-item">
+             <h3><i class="ph ph-bank"></i> 철저한 뱅크롤 관리</h3>
+             <p>자신이 가진 전체 자본의 5% 이상을 한 테이블에 투입하지 마십시오. 다운스윙(연속 패배) 구간에도 파산하지 않고 안정적으로 버텨내는 능력이 곧 프로의 실력입니다.</p>
           </div>
-
         </div>
+      </div>
+    </section>
 
-        <div style="margin-top: 40px; text-align: center; border-top: 1px dashed var(--border); padding-top: 30px;">
-          <h4 style="font-size: 1.4rem; font-weight: 800; color: #1e293b; margin-bottom: 10px;">결과는 테이블 위에서 증명해야 합니다</h4>
-          <p style="font-weight: 500; color: var(--text-muted); margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-            가장 진보된 글로벌 라이선스 서버, 철저한 무사고 클린 K-POKER에서 지금 바로 백과사전의 지식을 수익으로 환산하세요.
+    <!-- Psychology Section -->
+    <section id="psychology" style="padding: 100px 0; background: white;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="reveal">
+          <h2 class="strategy-section-title" style="margin-bottom: 24px;">강인한 정신력: 틸트(Tilt) 통제</h2>
+          <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
+            가장 뛰어난 전략가도 분노 앞에서는 무너집니다. 억울한 패배(배드 비트)를 당했을 때 냉정함을 잃지 않는 것, 그것이 K-POKER가 지향하는 진정한 고수의 자세입니다. 평정심을 잃었다면 즉시 테이블에서 일어나 휴식을 취하십시오.
           </p>
-          <a href="https://kpoker.win/ko" target="_blank" class="btn-primary wave-btn" style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.15rem; padding: 16px 45px; text-decoration: none; box-shadow: 0 10px 20px rgba(15,74,185, 0.4); transform: scale(1.05);">
-            지금 바로 게임 시작하기 <i class="ph-bold ph-arrow-right"></i>
-          </a>
+          <div style="margin-top: 40px;">
+            <a href="https://kpoker.win/ko" target="_blank" class="btn-primary large wave-btn">실전에서 전략 테스트하기</a>
+          </div>
         </div>
-      </section>
-
-    </div>
+      </div>
+    </section>
   </main>
 
-  <style>
-    html { scroll-behavior: smooth; }
-    .btn-nav { background: white; color: var(--text-main); border: 1px solid var(--border); font-weight: 700; cursor: pointer; transition: all 0.2s; text-decoration: none;}
-    .btn-nav:hover { background: #f1f5f9; color: var(--primary); border-color: var(--primary); }
-    .back-link:hover { color: var(--primary) !important; }
-    
-    /* Header Nav */
-    .header-nav { display: flex; gap: 20px; margin-left: auto; margin-right: 20px; align-items: center; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-    .header-nav::-webkit-scrollbar { display: none; }
-    .header-nav a { font-weight: 700; font-size: 0.95rem; color: var(--text-main); text-decoration: none; position: relative; padding: 5px 0; transition: color 0.3s; }
-    .header-nav a::after { content: ''; position: absolute; width: 0%; height: 2px; bottom: 0; left: 50%; transform: translateX(-50%); background: var(--primary); transition: width 0.3s; }
-    .header-nav a:hover, .header-nav a.active { color: var(--primary); }
-    .header-nav a:hover::after, .header-nav a.active::after { width: 100%; }
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/notice" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700; transition: color 0.2s;">📣 공지사항 바로가기</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700; transition: color 0.2s;">📖 사용자 가이드 바로가기</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
 
-    @media (max-width: 800px) {
-      .header-nav { order: 3; width: 100%; margin: 10px 0 0 0; justify-content: flex-start; padding-bottom: 5px; border-top: 1px solid var(--border); padding-top: 15px; }
-      .header-container { flex-wrap: wrap; padding: 15px 20px 10px; }
-      .header-actions { margin-left: auto; }
-    }
-  </style>
+  <script type="module">
+    // Simple reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
+    document.querySelectorAll('.reveal, .stagger-group').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
