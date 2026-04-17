@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-POKER 블로그 - 텍사스 홀덤 전략 · 핸드 분석 · 토너먼트 소식</title>
+
+  <meta name="description" content="K-POKER 공식 블로그. 텍사스 홀덤 전략, 핸드 분석, 포커 확률 가이드, 토너먼트 결과를 한국어로 정리한 학습 자료실.">
+  <meta name="keywords" content="텍사스 홀덤 블로그, 포커 전략, 핸드 분석, 포커 확률, 온라인 홀덤, K-POKER 블로그, 토너먼트 결과">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="K-POKER 블로그 - 텍사스 홀덤 전략 · 핸드 분석 · 토너먼트 소식">
+  <meta property="og:description" content="포커 전략과 핸드 분석을 정기적으로 업데이트하는 K-POKER 공식 블로그.">
+  <meta property="og:url" content="https://kpoker.win/blog">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "K-POKER 블로그",
+    "description": "텍사스 홀덤 전략, 핸드 분석, 토너먼트 결과를 다루는 한국어 포커 블로그",
+    "url": "https://kpoker.win/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .blog-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; text-align: center; }
+
+    .blog-filters { max-width: 1100px; margin: 30px auto 20px; padding: 0 20px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .blog-filter { padding: 8px 16px; background: white; border: 1px solid var(--border); border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+    .blog-filter:hover, .blog-filter.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .blog-grid { max-width: 1100px; margin: 30px auto 80px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .blog-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+    .blog-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .blog-card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+    .blog-card-thumb { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); height: 160px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; }
+    .blog-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; font-size: 0.78rem; color: var(--text-muted); }
+    .blog-card-tag { background: #eff6ff; color: var(--primary); padding: 3px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; border: 1px solid #dbeafe; }
+    .blog-card-title { font-size: 1.1rem; font-weight: 800; color: var(--text-main); line-height: 1.4; margin-bottom: 10px; }
+    .blog-card-excerpt { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .blog-card-footer { margin-top: 16px; font-size: 0.85rem; color: var(--primary); font-weight: 700; }
+
+    .blog-empty { max-width: 600px; margin: 80px auto; text-align: center; padding: 40px; background: white; border-radius: 16px; border: 1px solid var(--border); }
+    .blog-empty i { font-size: 3rem; color: var(--text-muted); }
+    .blog-empty p { color: var(--text-muted); margin-top: 15px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <div class="reveal">
+          <span class="pill-badge" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">K-POKER Blog</span>
+          <h1 class="section-title" style="color: white;">포커 전략 · 핸드 분석 · 토너먼트 소식</h1>
+          <p class="section-desc" style="color: rgba(255,255,255,0.8);">매주 업데이트되는 한국어 텍사스 홀덤 학습 자료실입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="blog-filters">
+      <a href="/blog" class="blog-filter active">전체</a>
+      <a href="/blog?cat=strategy" class="blog-filter">전략</a>
+      <a href="/blog?cat=hand-analysis" class="blog-filter">핸드 분석</a>
+      <a href="/blog?cat=tournament" class="blog-filter">토너먼트</a>
+      <a href="/blog?cat=glossary" class="blog-filter">용어</a>
+      <a href="/blog?cat=guide" class="blog-filter">가이드</a>
+    </div>
+
+    <section class="blog-grid">
+      
+      <article class="blog-card" data-category="strategy">
+        <a href="/blog/pot-odds-basics">
+          <div class="blog-card-thumb">♠</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">전략</span>
+              <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+              <span><i class="ph ph-clock"></i> 3분</span>
+            </div>
+            <h2 class="blog-card-title">팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준</h2>
+            <p class="blog-card-excerpt">팟 오즈는 텍사스 홀덤에서 콜과 폴드를 결정하는 가장 중요한 수학적 도구입니다. 계산 공식부터 실전 적용까지 한 번에 정리합니다.</p>
+            <div class="blog-card-footer">읽어보기 <i class="ph ph-arrow-right"></i></div>
+          </div>
+        </a>
+      </article>
+    
+
+      <article class="blog-card" data-category="hand-analysis">
+        <a href="/blog/aa-vs-kk-preflop-dynamics">
+          <div class="blog-card-thumb">🃏</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">핸드 분석</span>
+              <span><i class="ph ph-calendar"></i> 2026.04.15</span>
+              <span><i class="ph ph-clock"></i> 4분</span>
+            </div>
+            <h2 class="blog-card-title">AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임</h2>
+            <p class="blog-card-excerpt">포켓 에이스 vs 포켓 킹스는 가장 자주 등장하는 프리미엄 매치업입니다. 정확한 승률, 자주 하는 실수, 사이즈 결정까지 분석합니다.</p>
+            <div class="blog-card-footer">읽어보기 <i class="ph ph-arrow-right"></i></div>
+          </div>
+        </a>
+      </article>
+    
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple category filter via URL param
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      if (cat) {
+        document.querySelectorAll('.blog-filter').forEach(el => el.classList.remove('active'));
+        const activeFilter = document.querySelector(`.blog-filter[href="/blog?cat=${cat}"]`);
+        if (activeFilter) activeFilter.classList.add('active');
+        document.querySelectorAll('.blog-card').forEach(card => {
+          card.style.display = card.dataset.category === cat ? '' : 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

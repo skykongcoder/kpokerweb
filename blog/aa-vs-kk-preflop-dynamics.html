@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임 - K-POKER 블로그</title>
+
+  <meta name="description" content="포켓 에이스 vs 포켓 킹스는 가장 자주 등장하는 프리미엄 매치업입니다. 정확한 승률, 자주 하는 실수, 사이즈 결정까지 분석합니다.">
+  <meta name="keywords" content="AA vs KK, 포켓 에이스, 포켓 킹스, 프리플랍 분석, K-POKER">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog/aa-vs-kk-preflop-dynamics">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임">
+  <meta property="og:description" content="포켓 에이스 vs 포켓 킹스는 가장 자주 등장하는 프리미엄 매치업입니다. 정확한 승률, 자주 하는 실수, 사이즈 결정까지 분석합니다.">
+  <meta property="og:url" content="https://kpoker.win/blog/aa-vs-kk-preflop-dynamics">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="article:published_time" content="2026-04-15">
+  <meta property="article:author" content="K-POKER 코리아">
+  <meta property="article:section" content="핸드 분석">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임",
+    "description": "포켓 에이스 vs 포켓 킹스는 가장 자주 등장하는 프리미엄 매치업입니다. 정확한 승률, 자주 하는 실수, 사이즈 결정까지 분석합니다.",
+    "image": "https://kpoker.win/hero.png",
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-04-15",
+    "author": {
+      "@type": "Organization",
+      "name": "K-POKER 코리아",
+      "url": "https://kpoker.win"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kpoker.win/blog/aa-vs-kk-preflop-dynamics"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; }
+    .post-hero .container { max-width: 800px; }
+    .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
+
+    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
+    .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .post-body p { margin: 16px 0; }
+    .post-body ul, .post-body ol { margin: 16px 0 16px 24px; }
+    .post-body li { margin: 8px 0; }
+    .post-body strong { color: var(--text-main); font-weight: 700; }
+    .post-body code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: var(--font-en); font-size: 0.9em; color: var(--primary); }
+    .post-body pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0; }
+    .post-body pre code { background: none; color: inherit; padding: 0; }
+    .post-body blockquote { border-left: 4px solid var(--primary); background: #f8fafc; padding: 16px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; color: var(--text-muted); }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+    .post-body th, .post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .post-body th { background: #f8fafc; font-weight: 700; }
+    .post-body a { color: var(--primary); text-decoration: underline; }
+    .post-body img { max-width: 100%; border-radius: 12px; margin: 20px 0; }
+
+    .post-cta { max-width: 760px; margin: 60px auto; padding: 40px 30px; background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); border-radius: 20px; text-align: center; color: white; }
+    .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
+    .post-cta p { opacity: 0.9; margin-bottom: 20px; }
+    .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
+    .post-nav a:hover { border-color: var(--primary); color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container">
+        <a href="/blog" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;"><i class="ph ph-arrow-left"></i> 블로그 전체 글</a>
+        <h1 class="section-title" style="color: white; margin-top: 16px;">AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임</h1>
+        <div class="post-meta">
+          <span class="tag">핸드 분석</span>
+          <span><i class="ph ph-calendar"></i> 2026.04.15</span>
+          <span><i class="ph ph-clock"></i> 4분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="post-body">
+      <h2>가장 잔혹한 만남: AA vs KK</h2>
+<p>텍사스 홀덤에서 두 플레이어 모두 폴드하기 어려운 가장 흔한 시나리오는 <strong>AA vs KK</strong>입니다. 둘 다 프리미엄 핸드라 빅 팟이 만들어지고, 거의 항상 올인까지 갑니다.</p>
+<p>문제는 KK 쪽이 자신이 80% 불리한 상황임을 모른 채 콜한다는 것입니다.</p>
+<h2>정확한 승률 - 80:20이 아닌 81.95:18.05</h2>
+<table>
+<thead>
+<tr>
+<th>핸드</th>
+<th>승률</th>
+<th>무승부</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AA</td>
+<td><strong>81.95%</strong></td>
+<td>0.46%</td>
+</tr>
+<tr>
+<td>KK</td>
+<td><strong>17.59%</strong></td>
+<td>0.46%</td>
+</tr>
+</tbody></table>
+<p>KK가 이길 수 있는 시나리오는 단 두 가지:</p>
+<ol>
+<li><strong>보드에 K가 깔리는 경우</strong> (셋이나 그 이상)</li>
+<li><strong>KK가 스트레이트나 플러시를 만드는 경우</strong> (보드가 크게 도움)</li>
+</ol>
+<p>플랍에서 K가 나올 확률은 약 <strong>11.8%</strong> — 즉, 9번에 1번 정도만 KK가 승리 흐름으로 갑니다.</p>
+<h2>자주 하는 실수: KK 측</h2>
+<h3>실수 1: &quot;겨우 80%인데 운만 좋으면…&quot;</h3>
+<p>80% vs 20%은 일반인의 직관보다 훨씬 큰 차이입니다. 같은 상황을 100번 반복하면 18번만 이깁니다. 즉 5번 중 4번은 패배입니다.</p>
+<h3>실수 2: 4벳까지 가는 자동 반사</h3>
+<p>프리플랍에서 KK로 4벳을 받았을 때 <strong>5벳 올인</strong>은 거의 모든 상황에서 잘못된 결정입니다. 일반 플레이어가 4벳 레인지에 KK+를 포함시킨다면, KK는 코인플립이 아니라 <strong>AA에 압도되는 핸드</strong>입니다.</p>
+<blockquote>
+<p>4벳 콜만 하고, 플랍에서 K가 나오는지 보는 라인이 종종 더 +EV입니다.</p>
+</blockquote>
+<h3>실수 3: 스택 깊이 무시</h3>
+<p>숏 스택(20BB 이하)에서는 KK 올인이 강제되지만, <strong>딥 스택(150BB 이상)에서 KK 올인은 거의 항상 손해</strong>입니다. 큰 손해를 줄이는 것이 큰 이익을 추구하는 것보다 우선입니다.</p>
+<h2>자주 하는 실수: AA 측</h2>
+<h3>실수 1: 플랍 슬로우 플레이</h3>
+<p>AA로 프리플랍에 너무 약하게 플레이해서 멀티웨이로 가는 것은 위험합니다. 4명이 플랍을 보면 AA의 승률이 <strong>48%까지 떨어집니다</strong>. 항상 단일 상대 한 명을 만드는 사이즈가 필요합니다.</p>
+<h3>실수 2: K가 나왔을 때 패닉</h3>
+<p>플랍에 K가 등장해도 상대방이 항상 KK를 가진 것은 아닙니다. 적정 사이즈로 베팅을 이어가되, 큰 레이즈가 들어오면 그때 핸드 리딩을 시작하는 게 정답입니다.</p>
+<h2>적정 프리플랍 사이즈</h2>
+<p>100BB 캐시 게임 기준:</p>
+<table>
+<thead>
+<tr>
+<th>포지션</th>
+<th>오픈 사이즈</th>
+<th>3벳 사이즈</th>
+<th>4벳 사이즈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTG</td>
+<td>2.5BB</td>
+<td>9-11BB</td>
+<td>22-26BB</td>
+</tr>
+<tr>
+<td>MP/CO</td>
+<td>2.5BB</td>
+<td>9-11BB</td>
+<td>22-26BB</td>
+</tr>
+<tr>
+<td>BTN</td>
+<td>2.2-2.5BB</td>
+<td>8-10BB</td>
+<td>20-24BB</td>
+</tr>
+<tr>
+<td>SB</td>
+<td>3BB</td>
+<td>11-13BB</td>
+<td>28-32BB</td>
+</tr>
+<tr>
+<td>BB</td>
+<td>-</td>
+<td>12-14BB (vs SB)</td>
+<td>30-34BB</td>
+</tr>
+</tbody></table>
+<p>AA로는 <strong>항상 위 사이즈로 가치 베팅</strong>, KK로는 같은 사이즈를 사용하되 5벳 올인 결정에서 신중해야 합니다.</p>
+<h2>실전 시나리오: 100BB 딥 스택, BTN vs CO</h2>
+<pre><code>Action: CO opens 2.5BB
+Action: BTN 3벳 8.5BB (KK 보유)
+Action: CO 4벳 22BB
+</code></pre>
+<p>이 상황에서 BTN의 KK 처리법:</p>
+<p><strong>옵션 A — 5벳 올인 (잘못된 선택)</strong>
+일반적인 정규 플레이어의 4벳 레인지: AA, KK, QQ, AK</p>
+<ul>
+<li>AA: 32% (KK는 18%로 패배)</li>
+<li>KK: 0% (블로커)</li>
+<li>QQ: 32% (KK는 81%로 승리)</li>
+<li>AK: 36% (KK는 70%로 승리)</li>
+</ul>
+<p>평균 승률은 약 60%지만, 상대가 타이트한 경우(AA, KK만 4벳) <strong>승률은 50% 미만</strong>으로 떨어집니다.</p>
+<p><strong>옵션 B — 콜 (대부분 정답)</strong></p>
+<ul>
+<li>임플라이드 오즈 큼 (K가 나오면 큰 이익)</li>
+<li>리버스 임플라이드 오즈 큼 (A가 나오면 폴드 가능)</li>
+<li>100BB 딥에서 정보를 더 받고 결정</li>
+</ul>
+<p><strong>옵션 C — 폴드 (일부 상황)</strong>
+상대가 매우 타이트하여 4벳 레인지가 AA뿐이라고 확신할 때만 고려.</p>
+<h2>정리: 빠르고 강하게, 그러나 멈출 줄 알아야 한다</h2>
+<p>AA vs KK는 단순해 보이지만 <strong>스택 사이즈, 포지션, 상대방의 4벳 레인지</strong> 세 가지 요소에 따라 정답이 완전히 달라집니다.</p>
+<p>핵심 원칙:</p>
+<ol>
+<li><strong>AA는 항상 가치 베팅</strong>, 멀티웨이를 피하라</li>
+<li><strong>KK 5벳 올인은 신중히</strong> — 일반 정규의 4벳 레인지가 좁다면 손해</li>
+<li><strong>플랍에 K가 11.8%만 나온다는 사실을 기억</strong>하라</li>
+<li><strong>스택이 깊을수록 보수적</strong>으로</li>
+</ol>
+<p>다음 핸드 분석에서는 <strong>AK vs JJ — 클래식 코인플립의 진실</strong>을 다루겠습니다.</p>
+<blockquote>
+<p>💡 <strong>핵심 수치</strong></p>
+<ul>
+<li>AA vs KK 승률: 81.95% vs 17.59%</li>
+<li>플랍에 K 등장 확률: 11.8%</li>
+<li>멀티웨이(4명)에서 AA 승률: 48%</li>
+</ul>
+</blockquote>
+
+    </article>
+
+    <div class="post-cta">
+      <h3>K-POKER에서 직접 플레이하세요</h3>
+      <p>방금 읽은 전략을 실전에서 적용해볼 시간입니다.</p>
+      <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-white">지금 시작하기 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <nav class="post-nav">
+      <a href="/blog"><i class="ph ph-list"></i> 블로그 목록</a>
+      <a href="/strategy">전략 가이드 <i class="ph ph-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+</body>
+</html>

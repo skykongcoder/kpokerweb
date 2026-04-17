@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준 - K-POKER 블로그</title>
+
+  <meta name="description" content="팟 오즈는 텍사스 홀덤에서 콜과 폴드를 결정하는 가장 중요한 수학적 도구입니다. 계산 공식부터 실전 적용까지 한 번에 정리합니다.">
+  <meta name="keywords" content="팟 오즈, pot odds, 텍사스 홀덤 전략, 포커 확률, K-POKER">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog/pot-odds-basics">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준">
+  <meta property="og:description" content="팟 오즈는 텍사스 홀덤에서 콜과 폴드를 결정하는 가장 중요한 수학적 도구입니다. 계산 공식부터 실전 적용까지 한 번에 정리합니다.">
+  <meta property="og:url" content="https://kpoker.win/blog/pot-odds-basics">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="article:published_time" content="2026-04-17">
+  <meta property="article:author" content="K-POKER 코리아">
+  <meta property="article:section" content="전략">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준",
+    "description": "팟 오즈는 텍사스 홀덤에서 콜과 폴드를 결정하는 가장 중요한 수학적 도구입니다. 계산 공식부터 실전 적용까지 한 번에 정리합니다.",
+    "image": "https://kpoker.win/hero.png",
+    "datePublished": "2026-04-17",
+    "dateModified": "2026-04-17",
+    "author": {
+      "@type": "Organization",
+      "name": "K-POKER 코리아",
+      "url": "https://kpoker.win"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kpoker.win/blog/pot-odds-basics"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; }
+    .post-hero .container { max-width: 800px; }
+    .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
+
+    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
+    .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .post-body p { margin: 16px 0; }
+    .post-body ul, .post-body ol { margin: 16px 0 16px 24px; }
+    .post-body li { margin: 8px 0; }
+    .post-body strong { color: var(--text-main); font-weight: 700; }
+    .post-body code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: var(--font-en); font-size: 0.9em; color: var(--primary); }
+    .post-body pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0; }
+    .post-body pre code { background: none; color: inherit; padding: 0; }
+    .post-body blockquote { border-left: 4px solid var(--primary); background: #f8fafc; padding: 16px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; color: var(--text-muted); }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+    .post-body th, .post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .post-body th { background: #f8fafc; font-weight: 700; }
+    .post-body a { color: var(--primary); text-decoration: underline; }
+    .post-body img { max-width: 100%; border-radius: 12px; margin: 20px 0; }
+
+    .post-cta { max-width: 760px; margin: 60px auto; padding: 40px 30px; background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); border-radius: 20px; text-align: center; color: white; }
+    .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
+    .post-cta p { opacity: 0.9; margin-bottom: 20px; }
+    .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
+    .post-nav a:hover { border-color: var(--primary); color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container">
+        <a href="/blog" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;"><i class="ph ph-arrow-left"></i> 블로그 전체 글</a>
+        <h1 class="section-title" style="color: white; margin-top: 16px;">팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준</h1>
+        <div class="post-meta">
+          <span class="tag">전략</span>
+          <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+          <span><i class="ph ph-clock"></i> 3분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="post-body">
+      <h2>팟 오즈(Pot Odds)란 무엇인가</h2>
+<p>팟 오즈는 <strong>현재 팟에 쌓인 칩 대비 내가 콜해야 하는 칩의 비율</strong>입니다. 이 비율을 통해 우리는 한 가지 핵심 질문에 답할 수 있습니다:</p>
+<blockquote>
+<p>&quot;이 콜이 장기적으로 이익인가, 손실인가?&quot;</p>
+</blockquote>
+<p>홀덤은 단판이 아니라 수천, 수만 핸드의 누적 게임입니다. 매번의 결정이 정확한 수학에 기반해야 장기적으로 이익이 쌓입니다. 팟 오즈는 그 결정의 첫 번째 도구입니다.</p>
+<h2>팟 오즈 계산 공식</h2>
+<pre><code>팟 오즈 = 콜 금액 ÷ (현재 팟 + 콜 금액)
+</code></pre>
+<p>예시로 설명하겠습니다:</p>
+<ul>
+<li>현재 팟: 100,000원</li>
+<li>상대방의 베팅: 50,000원 (이걸 콜해야 함)</li>
+<li>콜한 후 팟: 100,000 + 50,000 + 50,000 = 200,000원</li>
+<li>팟 오즈 = 50,000 ÷ 200,000 = <strong>25%</strong></li>
+</ul>
+<p>즉, <strong>내가 25% 이상의 확률로 이긴다면 콜이 +EV(이득)</strong> 입니다.</p>
+<h2>아웃츠와 결합한 실전 적용</h2>
+<p>플랍에서 플러시 드로우를 가지고 있다고 가정합시다. 같은 무늬 카드 9장이 남아 있고 (52장 - 본인 핸드 2장 - 보드 동일 무늬 2장 - 보드 다른 무늬 2장 = 9장), 턴과 리버 두 번의 기회가 있습니다.</p>
+<p><strong>Rule of 4 (플랍에서 리버까지):</strong></p>
+<pre><code>승리 확률(%) ≈ 아웃츠 × 4
+9 × 4 = 36%
+</code></pre>
+<p><strong>Rule of 2 (턴에서 리버까지):</strong></p>
+<pre><code>9 × 2 = 18%
+</code></pre>
+<p>위 예시(팟 오즈 25%)에서:</p>
+<ul>
+<li>플랍 콜 결정: 승률 36% &gt; 팟 오즈 25% → <strong>콜 정답</strong></li>
+<li>턴 콜 결정: 승률 18% &lt; 팟 오즈 25% → <strong>폴드 정답</strong></li>
+</ul>
+<p>같은 핸드인데도 거리(스트리트)에 따라 결정이 달라진다는 점이 핵심입니다.</p>
+<h2>임플라이드 오즈(Implied Odds)</h2>
+<p>팟 오즈가 부족해도 <strong>앞으로 받아낼 수 있는 베팅까지 고려</strong>하면 콜할 수 있는 경우가 있습니다.</p>
+<p>예를 들어 10,000원을 콜하면 팟 오즈가 부족하지만, 내가 플러시를 완성했을 때 상대방이 50,000원을 추가로 베팅해줄 가능성이 높다면, 실제 보상은 훨씬 큽니다.</p>
+<p><strong>임플라이드 오즈를 높이는 조건:</strong></p>
+<table>
+<thead>
+<tr>
+<th>조건</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>상대방 칩이 깊음</td>
+<td>딥 스택일수록 추가 베팅 여지가 큼</td>
+</tr>
+<tr>
+<td>상대방 핸드 강함</td>
+<td>오버페어, 톱페어 등은 쉽게 폴드 안 함</td>
+</tr>
+<tr>
+<td>본인 핸드가 위장됨</td>
+<td>플러시 드로우는 발견하기 어려움</td>
+</tr>
+<tr>
+<td>포지션 좋음</td>
+<td>마지막 액션 권한이 있음</td>
+</tr>
+</tbody></table>
+<h2>리버스 임플라이드 오즈(Reverse Implied Odds)</h2>
+<p>반대로 <strong>내가 핸드를 만들어도 더 큰 핸드에 질 가능성</strong>이 있을 때는 표면 팟 오즈보다 보수적으로 접근해야 합니다.</p>
+<p>대표적인 예: 낮은 스트레이트 드로우(예: 5-6 보드 7-8-9)는 만들어도 더 높은 스트레이트(10-J)에 질 위험이 있습니다.</p>
+<h2>자주 하는 실수 5가지</h2>
+<ol>
+<li><strong>팟 오즈만 보고 임플라이드 오즈를 무시</strong> - 단기 팟이 아닌 핸드 전체의 흐름을 봐야 합니다.</li>
+<li><strong>Rule of 4를 턴에서도 적용</strong> - 턴 이후엔 Rule of 2만 사용해야 정확합니다.</li>
+<li><strong>상대방의 베팅 패턴 무시</strong> - 같은 50% 팟 베팅도 어떤 상대인지에 따라 의미가 다릅니다.</li>
+<li><strong>카드를 두 번 본다고 가정</strong> - 상대방이 턴에서 다시 베팅하면 한 번만 보는 셈입니다.</li>
+<li><strong>EV 계산 없이 감으로 결정</strong> - 매번 정확한 숫자로 검증하는 습관이 장기 승률을 만듭니다.</li>
+</ol>
+<h2>정리</h2>
+<p>팟 오즈는 단순한 수학이 아니라, <strong>불확실성 속에서 일관된 결정을 내리게 해주는 도구</strong>입니다. 처음에는 모든 핸드에서 의식적으로 계산해보세요. 100핸드 정도 반복하면 본능적으로 팟 오즈가 보이기 시작합니다.</p>
+<p>다음 글에서는 <strong>포지션과 팟 오즈의 결합 효과</strong>, 그리고 다인 팟에서의 적용 방법을 다루겠습니다.</p>
+<blockquote>
+<p>💡 <strong>핵심 정리</strong></p>
+<ul>
+<li>팟 오즈 = 콜 금액 ÷ (총 팟)</li>
+<li>승률(아웃츠 × 4 또는 × 2) &gt; 팟 오즈 → 콜</li>
+<li>임플라이드 오즈로 보정 가능</li>
+<li>리버스 임플라이드 오즈로 위험 인식</li>
+</ul>
+</blockquote>
+
+    </article>
+
+    <div class="post-cta">
+      <h3>K-POKER에서 직접 플레이하세요</h3>
+      <p>방금 읽은 전략을 실전에서 적용해볼 시간입니다.</p>
+      <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-white">지금 시작하기 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <nav class="post-nav">
+      <a href="/blog"><i class="ph ph-list"></i> 블로그 목록</a>
+      <a href="/strategy">전략 가이드 <i class="ph ph-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+</body>
+</html>

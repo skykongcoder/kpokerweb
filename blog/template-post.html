@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} - K-POKER 블로그</title>
+
+  <meta name="description" content="{{EXCERPT}}">
+  <meta name="keywords" content="{{KEYWORDS}}">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog/{{SLUG}}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{EXCERPT}}">
+  <meta property="og:url" content="https://kpoker.win/blog/{{SLUG}}">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="article:published_time" content="{{DATE_ISO}}">
+  <meta property="article:author" content="K-POKER 코리아">
+  <meta property="article:section" content="{{CATEGORY}}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{TITLE}}",
+    "description": "{{EXCERPT}}",
+    "image": "https://kpoker.win/hero.png",
+    "datePublished": "{{DATE_ISO}}",
+    "dateModified": "{{DATE_ISO}}",
+    "author": {
+      "@type": "Organization",
+      "name": "K-POKER 코리아",
+      "url": "https://kpoker.win"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kpoker.win/blog/{{SLUG}}"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; }
+    .post-hero .container { max-width: 800px; }
+    .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
+
+    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
+    .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .post-body p { margin: 16px 0; }
+    .post-body ul, .post-body ol { margin: 16px 0 16px 24px; }
+    .post-body li { margin: 8px 0; }
+    .post-body strong { color: var(--text-main); font-weight: 700; }
+    .post-body code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: var(--font-en); font-size: 0.9em; color: var(--primary); }
+    .post-body pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0; }
+    .post-body pre code { background: none; color: inherit; padding: 0; }
+    .post-body blockquote { border-left: 4px solid var(--primary); background: #f8fafc; padding: 16px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; color: var(--text-muted); }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+    .post-body th, .post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .post-body th { background: #f8fafc; font-weight: 700; }
+    .post-body a { color: var(--primary); text-decoration: underline; }
+    .post-body img { max-width: 100%; border-radius: 12px; margin: 20px 0; }
+
+    .post-cta { max-width: 760px; margin: 60px auto; padding: 40px 30px; background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); border-radius: 20px; text-align: center; color: white; }
+    .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
+    .post-cta p { opacity: 0.9; margin-bottom: 20px; }
+    .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
+    .post-nav a:hover { border-color: var(--primary); color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container">
+        <a href="/blog" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;"><i class="ph ph-arrow-left"></i> 블로그 전체 글</a>
+        <h1 class="section-title" style="color: white; margin-top: 16px;">{{TITLE}}</h1>
+        <div class="post-meta">
+          <span class="tag">{{CATEGORY}}</span>
+          <span><i class="ph ph-calendar"></i> {{DATE_DISPLAY}}</span>
+          <span><i class="ph ph-clock"></i> {{READING_TIME}}분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="post-body">
+      {{CONTENT}}
+    </article>
+
+    <div class="post-cta">
+      <h3>K-POKER에서 직접 플레이하세요</h3>
+      <p>방금 읽은 전략을 실전에서 적용해볼 시간입니다.</p>
+      <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-white">지금 시작하기 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <nav class="post-nav">
+      <a href="/blog"><i class="ph ph-list"></i> 블로그 목록</a>
+      <a href="/strategy">전략 가이드 <i class="ph ph-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+</body>
+</html>
