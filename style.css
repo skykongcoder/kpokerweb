@@ -94,12 +94,6 @@ button { cursor: pointer; border: none; outline: none; background: transparent; 
 .header-nav a:hover, .header-nav a.active { color: var(--primary); }
 .header-nav a:hover::after, .header-nav a.active::after { width: 100%; }
 
-/* Smooth cross-document navigation (Chrome/Edge) */
-@view-transition { navigation: auto; }
-::view-transition-old(root) { animation: fadeOut 180ms ease forwards; }
-::view-transition-new(root) { animation: fadeIn 220ms ease forwards; }
-@keyframes fadeOut { to { opacity: 0; } }
-@keyframes fadeIn { from { opacity: 0; } }
 
 .header-actions { display: flex; align-items: center; gap: 16px; }
 .bonus-badge { font-size: 0.85rem; font-weight: 700; color: #ef4444; background: #fef2f2; padding: 4px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; animation: gentlePulse 2s infinite;}
