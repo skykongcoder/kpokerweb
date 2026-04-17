@@ -2,12 +2,6 @@
   "_comment": "AI 블로그 글감 큐. 위에서부터 순서대로 사용됩니다. 새 항목을 추가하거나 빈 배열이 되면 GitHub Actions가 스킵합니다.",
   "topics": [
     {
-      "title": "AK vs JJ - 클래식 코인플립의 진실",
-      "category": "hand-analysis",
-      "keywords": ["AK vs JJ", "코인플립", "프리플랍 매치업", "포커 확률"],
-      "angle": "AK vs JJ 정확한 승률(46:54), 자주 하는 실수, 포지션별 처리법, 스택 사이즈에 따른 결정"
-    },
-    {
       "title": "포지션의 힘 - 버튼이 가장 비싼 자리인 이유",
       "category": "strategy",
       "keywords": ["포지션", "버튼", "BTN", "EP MP LP", "포커 포지션 전략"],
