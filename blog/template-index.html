@@ -13,11 +13,20 @@
   <link rel="canonical" href="https://kpoker.win/blog">
 
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="K-POKER 블로그 - 텍사스 홀덤 전략 · 핸드 분석 · 토너먼트 소식">
   <meta property="og:description" content="포커 전략과 핸드 분석을 정기적으로 업데이트하는 K-POKER 공식 블로그.">
   <meta property="og:url" content="https://kpoker.win/blog">
   <meta property="og:site_name" content="K-POKER">
   <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="K-POKER 블로그">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="K-POKER 블로그 - 텍사스 홀덤 전략 · 핸드 분석">
+  <meta name="twitter:description" content="포커 전략과 핸드 분석을 정기적으로 업데이트하는 K-POKER 공식 블로그.">
+  <meta name="twitter:image" content="https://kpoker.win/hero.png">
 
   <script type="application/ld+json">
   {
@@ -26,6 +35,7 @@
     "name": "K-POKER 블로그",
     "description": "텍사스 홀덤 전략, 핸드 분석, 토너먼트 결과를 다루는 한국어 포커 블로그",
     "url": "https://kpoker.win/blog",
+    "inLanguage": "ko-KR",
     "publisher": {
       "@type": "Organization",
       "name": "K-POKER",
@@ -34,6 +44,27 @@
         "url": "https://kpoker.win/logo.webp"
       }
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://kpoker.win/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "블로그",
+        "item": "https://kpoker.win/blog"
+      }
+    ]
   }
   </script>
 
@@ -65,6 +96,14 @@
     .blog-empty { max-width: 600px; margin: 80px auto; text-align: center; padding: 40px; background: white; border-radius: 16px; border: 1px solid var(--border); }
     .blog-empty i { font-size: 3rem; color: var(--text-muted); }
     .blog-empty p { color: var(--text-muted); margin-top: 15px; }
+
+    .breadcrumb { max-width: 1100px; margin: 0 auto; padding: 14px 24px; font-size: 0.85rem; color: var(--text-muted); }
+    .breadcrumb ol { list-style: none; padding: 0; margin: 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .breadcrumb li { display: flex; align-items: center; gap: 8px; }
+    .breadcrumb li:not(:last-child)::after { content: "›"; color: var(--text-muted); margin-left: 4px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); }
+    .breadcrumb li[aria-current="page"] { color: var(--text-main); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -90,7 +129,7 @@
   </header>
 
   <main>
-    <section class="blog-hero">
+    <section class="post-hero blog-hero">
       <div class="container">
         <div class="reveal">
           <span class="pill-badge" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">K-POKER Blog</span>
@@ -99,6 +138,13 @@
         </div>
       </div>
     </section>
+
+    <nav class="breadcrumb" aria-label="현재 위치">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li aria-current="page">블로그</li>
+      </ol>
+    </nav>
 
     <div class="blog-filters">
       <a href="/blog" class="blog-filter active">전체</a>

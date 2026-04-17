@@ -13,14 +13,24 @@
   <link rel="canonical" href="https://kpoker.win/blog/position-power-button">
 
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="포지션의 힘 - 버튼이 가장 비싼 자리인 이유">
   <meta property="og:description" content="9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.">
   <meta property="og:url" content="https://kpoker.win/blog/position-power-button">
   <meta property="og:site_name" content="K-POKER">
   <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="K-POKER 블로그 - 포지션의 힘 - 버튼이 가장 비싼 자리인 이유">
   <meta property="article:published_time" content="2026-04-18">
+  <meta property="article:modified_time" content="2026-04-18">
   <meta property="article:author" content="K-POKER 코리아">
   <meta property="article:section" content="전략">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="포지션의 힘 - 버튼이 가장 비싼 자리인 이유">
+  <meta name="twitter:description" content="9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.">
+  <meta name="twitter:image" content="https://kpoker.win/hero.png">
 
   <script type="application/ld+json">
   {
@@ -28,9 +38,19 @@
     "@type": "BlogPosting",
     "headline": "포지션의 힘 - 버튼이 가장 비싼 자리인 이유",
     "description": "9-맥스 테이블에서 같은 AJo도 UTG에서는 머크, BTN에서는 표준 오픈이다. 포지션이 윈레이트의 가장 큰 변수인 이유를 데이터와 솔버 출력으로 짚는다.",
-    "image": "https://kpoker.win/hero.png",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://kpoker.win/hero.png",
+      "width": 1200,
+      "height": 630
+    },
     "datePublished": "2026-04-18",
     "dateModified": "2026-04-18",
+    "inLanguage": "ko-KR",
+    "wordCount": 1222,
+    "timeRequired": "PT3M",
+    "articleSection": "전략",
+    "keywords": "포지션, 버튼, BTN, EP MP LP, 포커 포지션 전략",
     "author": {
       "@type": "Organization",
       "name": "K-POKER 코리아",
@@ -51,6 +71,33 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://kpoker.win/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "블로그",
+        "item": "https://kpoker.win/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "포지션의 힘 - 버튼이 가장 비싼 자리인 이유",
+        "item": "https://kpoker.win/blog/position-power-button"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -63,7 +110,15 @@
     .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
     .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
 
-    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .breadcrumb { max-width: 800px; margin: 0 auto; padding: 14px 24px; font-size: 0.85rem; color: var(--text-muted); }
+    .breadcrumb ol { list-style: none; padding: 0; margin: 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .breadcrumb li { display: flex; align-items: center; gap: 8px; }
+    .breadcrumb li:not(:last-child)::after { content: "›"; color: var(--text-muted); margin-left: 4px; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); }
+    .breadcrumb li[aria-current="page"] { color: var(--text-main); font-weight: 600; }
+
+    .post-body { max-width: 760px; margin: 40px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
     .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
     .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
     .post-body p { margin: 16px 0; }
@@ -84,6 +139,16 @@
     .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
     .post-cta p { opacity: 0.9; margin-bottom: 20px; }
     .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .related-posts { max-width: 1100px; margin: 60px auto; padding: 0 24px; }
+    .related-posts h2 { font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; padding-left: 14px; border-left: 4px solid var(--primary); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .related-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: all 0.2s; }
+    .related-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .related-card a { text-decoration: none; color: inherit; display: block; }
+    .related-card-tag { display: inline-block; background: #eff6ff; color: var(--primary); padding: 3px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; border: 1px solid #dbeafe; margin-bottom: 10px; }
+    .related-card-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); line-height: 1.4; margin-bottom: 8px; }
+    .related-card-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; align-items: center; }
 
     .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
@@ -124,6 +189,14 @@
         </div>
       </div>
     </section>
+
+    <nav class="breadcrumb" aria-label="현재 위치">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/blog">블로그</a></li>
+        <li aria-current="page">포지션의 힘 - 버튼이 가장 비싼 자리인 이유</li>
+      </ol>
+    </nav>
 
     <article class="post-body">
       <h2>같은 AJo, 정반대 결정</h2>
@@ -229,6 +302,45 @@
 </blockquote>
 
     </article>
+
+    <section class="related-posts">
+      <h2>관련 글</h2>
+      <div class="related-grid">
+        
+        <article class="related-card">
+          <a href="/blog/pot-odds-basics">
+            <span class="related-card-tag">전략</span>
+            <h3 class="related-card-title">팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준</h3>
+            <div class="related-card-meta">
+              <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+              <span><i class="ph ph-clock"></i> 3분</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="related-card">
+          <a href="/blog/ak-vs-jj-coinflip-myth">
+            <span class="related-card-tag">핸드 분석</span>
+            <h3 class="related-card-title">AK vs JJ - 클래식 코인플립의 진실</h3>
+            <div class="related-card-meta">
+              <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+              <span><i class="ph ph-clock"></i> 3분</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="related-card">
+          <a href="/blog/aa-vs-kk-preflop-dynamics">
+            <span class="related-card-tag">핸드 분석</span>
+            <h3 class="related-card-title">AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임</h3>
+            <div class="related-card-meta">
+              <span><i class="ph ph-calendar"></i> 2026.04.15</span>
+              <span><i class="ph ph-clock"></i> 4분</span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
 
     <div class="post-cta">
       <h3>K-POKER에서 직접 플레이하세요</h3>

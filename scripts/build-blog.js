@@ -25,6 +25,7 @@ const BLOG_OUT_DIR = path.join(ROOT, 'blog');
 const TEMPLATE_POST = path.join(ROOT, 'blog', 'template-post.html');
 const TEMPLATE_INDEX = path.join(ROOT, 'blog', 'template-index.html');
 const SITEMAP_PATH = path.join(ROOT, 'public', 'sitemap.xml');
+const HOMEPAGE_PATH = path.join(ROOT, 'index.html');
 
 const CATEGORY_LABELS = {
   'strategy': '전략',
@@ -51,6 +52,13 @@ function calculateReadingTime(text) {
   return minutes;
 }
 
+function calculateWordCount(text) {
+  const stripped = text.replace(/[#*`>\[\]\-_!|]/g, ' ');
+  const koreanChars = (stripped.match(/[\uac00-\ud7af]/g) || []).length;
+  const englishWords = stripped.replace(/[\uac00-\ud7af]/g, '').split(/\s+/).filter(Boolean).length;
+  return koreanChars + englishWords;
+}
+
 function formatDateDisplay(isoDate) {
   const d = new Date(isoDate);
   return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -73,15 +81,13 @@ function renderTemplate(template, vars) {
   return out;
 }
 
-function buildPosts() {
+function collectPosts() {
   if (!fs.existsSync(POSTS_DIR)) {
     console.warn(`[build-blog] No posts directory at ${POSTS_DIR}, skipping.`);
     return [];
   }
 
-  const postTemplate = fs.readFileSync(TEMPLATE_POST, 'utf8');
   const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
-
   const posts = [];
 
   for (const file of files) {
@@ -98,41 +104,66 @@ function buildPosts() {
     const categoryLabel = CATEGORY_LABELS[category] || category;
     const excerpt = fm.excerpt || mdBody.replace(/[#*`>\[\]]/g, '').slice(0, 160).replace(/\s+/g, ' ').trim();
     const keywords = (fm.keywords || ['텍사스 홀덤', '온라인 홀덤', 'K-POKER']).join(', ');
-    const contentHtml = marked.parse(mdBody);
     const readingTime = calculateReadingTime(mdBody);
-
-    const html = renderTemplate(postTemplate, {
-      TITLE: escapeHtml(title),
-      EXCERPT: escapeHtml(excerpt),
-      KEYWORDS: escapeHtml(keywords),
-      SLUG: slug,
-      DATE_ISO: dateIso,
-      DATE_DISPLAY: dateDisplay,
-      CATEGORY: escapeHtml(categoryLabel),
-      READING_TIME: readingTime,
-      CONTENT: contentHtml,
-    });
-
-    const outPath = path.join(BLOG_OUT_DIR, `${slug}.html`);
-    fs.writeFileSync(outPath, html, 'utf8');
+    const wordCount = calculateWordCount(mdBody);
 
     posts.push({
-      slug,
-      title,
-      date,
-      dateIso,
-      dateDisplay,
-      category,
-      categoryLabel,
-      excerpt,
-      readingTime,
+      slug, title, date, dateIso, dateDisplay,
+      category, categoryLabel, excerpt, keywords,
+      readingTime, wordCount, mdBody,
     });
-
-    console.log(`[build-blog] Built: /blog/${slug}.html`);
   }
 
   posts.sort((a, b) => b.date - a.date);
   return posts;
+}
+
+function buildRelatedPostsHtml(currentPost, allPosts) {
+  const others = allPosts.filter(p => p.slug !== currentPost.slug);
+  const sameCategory = others.filter(p => p.category === currentPost.category);
+  const fillers = others.filter(p => p.category !== currentPost.category);
+  const picks = [...sameCategory, ...fillers].slice(0, 3);
+
+  if (picks.length === 0) return '';
+
+  return picks.map(p => `
+        <article class="related-card">
+          <a href="/blog/${escapeHtml(p.slug)}">
+            <span class="related-card-tag">${escapeHtml(p.categoryLabel)}</span>
+            <h3 class="related-card-title">${escapeHtml(p.title)}</h3>
+            <div class="related-card-meta">
+              <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
+              <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+            </div>
+          </a>
+        </article>`).join('\n');
+}
+
+function renderPosts(posts) {
+  const postTemplate = fs.readFileSync(TEMPLATE_POST, 'utf8');
+
+  for (const p of posts) {
+    const contentHtml = marked.parse(p.mdBody);
+    const relatedHtml = buildRelatedPostsHtml(p, posts);
+
+    const html = renderTemplate(postTemplate, {
+      TITLE: escapeHtml(p.title),
+      EXCERPT: escapeHtml(p.excerpt),
+      KEYWORDS: escapeHtml(p.keywords),
+      SLUG: p.slug,
+      DATE_ISO: p.dateIso,
+      DATE_DISPLAY: p.dateDisplay,
+      CATEGORY: escapeHtml(p.categoryLabel),
+      READING_TIME: p.readingTime,
+      WORD_COUNT: p.wordCount,
+      CONTENT: contentHtml,
+      RELATED_POSTS: relatedHtml,
+    });
+
+    const outPath = path.join(BLOG_OUT_DIR, `${p.slug}.html`);
+    fs.writeFileSync(outPath, html, 'utf8');
+    console.log(`[build-blog] Built: /blog/${p.slug}.html`);
+  }
 }
 
 function buildIndex(posts) {
@@ -212,11 +243,77 @@ function updateSitemap(posts) {
   console.log(`[build-blog] Updated sitemap.xml with ${posts.length + 1} blog URLs`);
 }
 
+function updateHomepage(posts) {
+  if (!fs.existsSync(HOMEPAGE_PATH)) {
+    console.warn(`[build-blog] No homepage at ${HOMEPAGE_PATH}, skipping injection.`);
+    return;
+  }
+
+  const latest = posts.slice(0, 3);
+  if (latest.length === 0) return;
+
+  const cardsHtml = latest.map(p => `
+        <article class="blog-teaser-card">
+          <a href="/blog/${escapeHtml(p.slug)}">
+            <span class="blog-teaser-tag">${escapeHtml(p.categoryLabel)}</span>
+            <h3 class="blog-teaser-title">${escapeHtml(p.title)}</h3>
+            <p class="blog-teaser-excerpt">${escapeHtml(p.excerpt)}</p>
+            <div class="blog-teaser-meta">
+              <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
+              <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+            </div>
+          </a>
+        </article>`).join('\n');
+
+  const sectionHtml = `
+    <section class="blog-teaser-section reveal" style="padding: 80px 0; background: #f8fafc;">
+      <style>
+        .blog-teaser-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+        .blog-teaser-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; transition: all 0.3s; overflow: hidden; }
+        .blog-teaser-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .blog-teaser-card a { text-decoration: none; color: inherit; display: block; padding: 24px; }
+        .blog-teaser-tag { display: inline-block; background: #eff6ff; color: var(--primary); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; border: 1px solid #dbeafe; margin-bottom: 12px; }
+        .blog-teaser-title { font-size: 1.1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin: 0 0 10px; }
+        .blog-teaser-excerpt { font-size: 0.9rem; color: #64748b; line-height: 1.6; margin: 0 0 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .blog-teaser-meta { font-size: 0.8rem; color: #94a3b8; display: flex; gap: 14px; align-items: center; }
+      </style>
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 40px;">
+          <span class="pill-badge">최신 블로그</span>
+          <h2 class="section-title">실전 전략 · 핸드 분석 · 토너먼트 소식</h2>
+          <p class="section-desc">매주 업데이트되는 한국어 텍사스 홀덤 학습 자료실입니다.</p>
+        </div>
+        <div class="blog-teaser-grid">${cardsHtml}
+        </div>
+        <div class="text-center" style="margin-top: 36px;">
+          <a href="/blog" class="btn-primary" style="display: inline-block;">블로그 전체 보기 <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>`;
+
+  let html = fs.readFileSync(HOMEPAGE_PATH, 'utf8');
+
+  if (!html.includes('<!-- LATEST_BLOG_START -->')) {
+    console.warn('[build-blog] Homepage has no LATEST_BLOG markers, skipping injection.');
+    return;
+  }
+
+  html = html.replace(
+    /<!-- LATEST_BLOG_START -->[\s\S]*?<!-- LATEST_BLOG_END -->/,
+    `<!-- LATEST_BLOG_START -->${sectionHtml}\n    <!-- LATEST_BLOG_END -->`
+  );
+
+  fs.writeFileSync(HOMEPAGE_PATH, html, 'utf8');
+  console.log(`[build-blog] Injected ${latest.length} latest posts into homepage`);
+}
+
 function main() {
   console.log('[build-blog] Starting blog build…');
-  const posts = buildPosts();
+  const posts = collectPosts();
+  renderPosts(posts);
   buildIndex(posts);
   updateSitemap(posts);
+  updateHomepage(posts);
   console.log(`[build-blog] Done. ${posts.length} post(s) generated.`);
 }
 
