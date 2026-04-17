@@ -1,10 +1,10 @@
-# Cloudflare Pages: canonicalize URLs by 301-redirecting .html to clean paths
+# Canonicalize: 301-redirect .html paths to clean URLs
 /index.html       /            301
 /strategy.html    /strategy    301
 /guide.html       /guide       301
 /notice.html      /notice      301
 /insta.html       /insta       301
-
-# Blog: clean URLs for posts (e.g. /blog/aa-vs-kk-analysis → /blog/aa-vs-kk-analysis.html)
 /blog/index.html  /blog        301
-/blog/:slug       /blog/:slug.html  200
+
+# /blog/<slug> automatically serves /blog/<slug>.html via Cloudflare's
+# html_handling: "auto-trailing-slash" (default). No rewrite rule needed.
