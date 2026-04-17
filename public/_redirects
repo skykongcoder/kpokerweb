@@ -4,3 +4,7 @@
 /guide.html       /guide       301
 /notice.html      /notice      301
 /insta.html       /insta       301
+
+# Blog: clean URLs for posts (e.g. /blog/aa-vs-kk-analysis → /blog/aa-vs-kk-analysis.html)
+/blog/index.html  /blog        301
+/blog/:slug       /blog/:slug.html  200

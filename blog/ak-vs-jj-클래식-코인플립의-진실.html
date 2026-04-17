@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK vs JJ - 클래식 코인플립의 진실 - K-POKER 블로그</title>
+
+  <meta name="description" content="AK와 JJ의 프리플랍 매치업은 &#39;코인플립&#39;으로 불리지만 실제 승률은 약 45:55로 JJ가 앞선다. 정확한 확률부터 스택 사이즈별 결정 원칙, 자주 하는 실수까지 데이터로 분석한다.">
+  <meta name="keywords" content="AK vs JJ, 코인플립, 프리플랍 매치업, 포커 확률">
+  <meta name="author" content="K-POKER 코리아">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://kpoker.win/blog/ak-vs-jj-클래식-코인플립의-진실">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AK vs JJ - 클래식 코인플립의 진실">
+  <meta property="og:description" content="AK와 JJ의 프리플랍 매치업은 &#39;코인플립&#39;으로 불리지만 실제 승률은 약 45:55로 JJ가 앞선다. 정확한 확률부터 스택 사이즈별 결정 원칙, 자주 하는 실수까지 데이터로 분석한다.">
+  <meta property="og:url" content="https://kpoker.win/blog/ak-vs-jj-클래식-코인플립의-진실">
+  <meta property="og:site_name" content="K-POKER">
+  <meta property="og:image" content="https://kpoker.win/hero.png">
+  <meta property="article:published_time" content="2026-04-17">
+  <meta property="article:author" content="K-POKER 코리아">
+  <meta property="article:section" content="핸드 분석">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AK vs JJ - 클래식 코인플립의 진실",
+    "description": "AK와 JJ의 프리플랍 매치업은 &#39;코인플립&#39;으로 불리지만 실제 승률은 약 45:55로 JJ가 앞선다. 정확한 확률부터 스택 사이즈별 결정 원칙, 자주 하는 실수까지 데이터로 분석한다.",
+    "image": "https://kpoker.win/hero.png",
+    "datePublished": "2026-04-17",
+    "dateModified": "2026-04-17",
+    "author": {
+      "@type": "Organization",
+      "name": "K-POKER 코리아",
+      "url": "https://kpoker.win"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K-POKER",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kpoker.win/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kpoker.win/blog/ak-vs-jj-클래식-코인플립의-진실"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .post-hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 0 60px; }
+    .post-hero .container { max-width: 800px; }
+    .post-meta { display: flex; gap: 15px; align-items: center; margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+    .post-meta .tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: white; }
+
+    .post-body { max-width: 760px; margin: 60px auto; padding: 0 24px; line-height: 1.85; color: var(--text-main); font-size: 1.02rem; }
+    .post-body h2 { margin-top: 50px; margin-bottom: 18px; font-size: 1.65rem; font-weight: 800; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 14px; }
+    .post-body h3 { margin-top: 35px; margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .post-body p { margin: 16px 0; }
+    .post-body ul, .post-body ol { margin: 16px 0 16px 24px; }
+    .post-body li { margin: 8px 0; }
+    .post-body strong { color: var(--text-main); font-weight: 700; }
+    .post-body code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: var(--font-en); font-size: 0.9em; color: var(--primary); }
+    .post-body pre { background: #0f172a; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 20px 0; }
+    .post-body pre code { background: none; color: inherit; padding: 0; }
+    .post-body blockquote { border-left: 4px solid var(--primary); background: #f8fafc; padding: 16px 20px; margin: 20px 0; border-radius: 0 12px 12px 0; color: var(--text-muted); }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+    .post-body th, .post-body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+    .post-body th { background: #f8fafc; font-weight: 700; }
+    .post-body a { color: var(--primary); text-decoration: underline; }
+    .post-body img { max-width: 100%; border-radius: 12px; margin: 20px 0; }
+
+    .post-cta { max-width: 760px; margin: 60px auto; padding: 40px 30px; background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%); border-radius: 20px; text-align: center; color: white; }
+    .post-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: white; }
+    .post-cta p { opacity: 0.9; margin-bottom: 20px; }
+    .post-cta .btn-white { background: white; color: var(--primary); padding: 14px 32px; border-radius: 12px; font-weight: 800; display: inline-block; text-decoration: none; }
+
+    .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .post-nav a { padding: 14px 22px; background: white; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; transition: all 0.2s; }
+    .post-nav a:hover { border-color: var(--primary); color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <a href="/" class="logo">
+          <img src="/logo.webp" alt="K-POKER Logo" style="height: 34px; width: auto; object-fit: contain; margin-right: 8px;">
+          <strong>KP</strong><span>OKER</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="/strategy">게임 방법 & 전략</a>
+        <a href="/guide">사용자 가이드</a>
+        <a href="/blog" class="active">블로그</a>
+        <a href="/notice">공지사항</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary wave-btn" style="display:inline-block;">홈페이지 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container">
+        <a href="/blog" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;"><i class="ph ph-arrow-left"></i> 블로그 전체 글</a>
+        <h1 class="section-title" style="color: white; margin-top: 16px;">AK vs JJ - 클래식 코인플립의 진실</h1>
+        <div class="post-meta">
+          <span class="tag">핸드 분석</span>
+          <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+          <span><i class="ph ph-clock"></i> 3분 읽기</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="post-body">
+      <h2>코인플립이 아니다</h2>
+<p>프리플랍 올인이 터졌다. 상대가 JJ를 뒤집고, 나는 AK. 옆에서 &quot;코인플립이네~&quot; 소리가 들린다. 근데 실제로는 그렇지 않다. AK 대 JJ는 코인플립처럼 보이지만 숫자를 들여다보면 얘기가 달라진다.</p>
+<h2>실제 승률</h2>
+<table>
+<thead>
+<tr>
+<th>매치업</th>
+<th>AK 승률</th>
+<th>JJ 승률</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AKo vs JJ</td>
+<td>43.65%</td>
+<td>56.35%</td>
+</tr>
+<tr>
+<td>AKs vs JJ</td>
+<td>46.74%</td>
+<td>53.26%</td>
+</tr>
+</tbody></table>
+<p>수티드냐 아니냐에 따라 3%p 차이가 난다. 작은 것 같지만 장기적으로 꽤 의미 있는 수치다. 오프수트 AK를 들고 JJ 상대로 올인하면, 기댓값 관점에서는 56:44로 불리한 쪽에서 칩을 밀어넣는 셈이다.</p>
+<p>JJ가 앞서는 이유는 단순하다. 메이드 핸드이기 때문. AK는 보드에 에이스나 킹이 떠야 앞서기 시작하는데 플랍에서 그게 히트될 확률이 약 29%다. 나머지 71%의 플랍에서는 JJ가 그냥 오버페어로 앞서 있다. JJ가 세트를 잡을 확률(약 11.8%)까지 더하면 AK 입장에선 역전이 꽤 힘든 구조다.</p>
+<h2>플랍까지 오면 얼마나 따라잡나</h2>
+<p>수치로 보자.</p>
+<ul>
+<li>덱에 남은 50장 중 에이스·킹 아웃은 6장</li>
+<li>플랍에서 최소 1장 히트: 약 32.4%</li>
+<li>리버까지 포함: 약 48~50%</li>
+</ul>
+<p>다섯 장이 다 깔려야 겨우 50%에 가까워진다는 얘기다. 그 시점에도 JJ가 세트를 잡아버리면 또 역전이 생기니, 순수 에퀴티 45:55는 거의 변하지 않는다고 봐도 된다.</p>
+<h2>스택에 따라 판단이 달라진다</h2>
+<p>많이들 &quot;JJ·AK 만나면 그냥 올인&quot;이라고 생각하는데, 스택이 깊으면 얘기가 조금 달라진다.</p>
+<table>
+<thead>
+<tr>
+<th>스택 크기</th>
+<th>AK</th>
+<th>JJ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>20BB 이하</td>
+<td>즉시 올인</td>
+<td>즉시 올인</td>
+</tr>
+<tr>
+<td>40~70BB</td>
+<td>4-bet 올인</td>
+<td>4-bet 올인 받아들임</td>
+</tr>
+<tr>
+<td>100BB+</td>
+<td>4-bet 올인 주도</td>
+<td>콜 후 포스트플랍 고려</td>
+</tr>
+</tbody></table>
+<p>딥스택에서 JJ는 포스트플랍에서 A 보드가 나오면 접는 옵션이 생긴다. 그래서 콜을 택해 세트 가치를 노리거나 체크-콜로 팟을 조절하는 라인이 나쁘지 않다. 반면 AK는 보드 히트 여부가 포스트플랍에서 명확히 드러나기 때문에, 에퀴티를 프리플랍에서 실현하는 올인이 대부분 더 낫다.</p>
+<p>여기서 포지션도 고려해야 한다. EP에서 열고 BTN이 3-bet, 그 레인지가 JJ~QQ+/AK라면 OOP에서 4-bet 올인이 맞다. 하지만 BTN 오픈 → BB 3-bet처럼 IP를 가지고 있다면 상황에 따라 콜로 정보를 더 수집하는 게 나을 수도 있다.</p>
+<h2>자주 보는 실수들</h2>
+<p><strong>&quot;어차피 반반이니 올인&quot;</strong> — 이게 제일 흔한 실수다. 상대의 4-bet 레인지가 JJ/QQ가 아니라 AA/KK에 집중된 타이트한 플레이어라면, AK로 올인하는 건 EV 마이너스 플레이가 된다. 레인지 리딩 없이 &quot;코인플립이니까&quot;로 퉁치는 건 위험하다.</p>
+<p>한 가지 더. JJ로 프리플랍 에퀴티가 좋다고 해서 플랍에서도 좋은 건 아니다. A72 레인보우 보드에서 JJ를 스택으로 밀어넣는 걸 종종 보는데, 그 보드는 상대 에이스 히트 확률이 충분히 높다. 프리플랍 매치업을 포스트플랍까지 들고 가는 건 별개의 판단이다.</p>
+<p>나도 처음엔 수티드 여부를 별로 안 따졌는데, AKs와 AKo의 3%p 차이를 수백 번 누적하면 꽤 쌓인다. AKs는 플러시 아웃이 추가 에퀴티를 만들어주기 때문에 레인지 계산할 때 구분해서 보는 습관이 좋다.</p>
+<h2>정리하면</h2>
+<p>JJ가 유리한 매치업이고, 그 차이는 무시할 만한 수준이 아니다. 숏스택에선 두 핸드 다 올인이 맞고, 딥스택에서는 포지션·상대 레인지까지 보고 결정하는 게 맞다.</p>
+<blockquote>
+<p>💡 <strong>핵심 정리</strong></p>
+<ul>
+<li>AKo vs JJ: 43.65% vs 56.35%, AKs vs JJ: 46.74% vs 53.26% — JJ가 분명히 앞선다.</li>
+<li>AK의 플랍 히트 확률은 약 32%. 리버까지 가야 균등에 가까워진다.</li>
+<li>숏스택(30BB 이하)은 두 핸드 모두 즉시 올인.</li>
+<li>딥스택 JJ는 콜 후 포스트플랍 옵션이 생긴다.</li>
+<li>상대 4-bet 레인지를 읽지 않고 &quot;코인플립이니까&quot;로 판단하면 EV 손해다.</li>
+</ul>
+</blockquote>
+
+    </article>
+
+    <div class="post-cta">
+      <h3>K-POKER에서 직접 플레이하세요</h3>
+      <p>방금 읽은 전략을 실전에서 적용해볼 시간입니다.</p>
+      <a href="https://kpoker.gg/ko" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-white">지금 시작하기 <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <nav class="post-nav">
+      <a href="/blog"><i class="ph ph-list"></i> 블로그 목록</a>
+      <a href="/strategy">전략 가이드 <i class="ph ph-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <div class="logo justify-center mb-2">
+        <img src="/logo.webp" alt="K-POKER Logo" style="height: 40px; width: auto; object-fit: contain; margin-right: 10px;">
+        <strong>KP</strong><span>OKER</span>
+      </div>
+      <p class="text-muted">완벽한 공정성과 신뢰, KPOKER COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
+      <div class="footer-links" style="margin: 20px 0;">
+        <a href="/strategy" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">게임 전략</a>
+        <a href="/guide" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">사용자 가이드</a>
+        <a href="/blog" class="footer-link" style="color: var(--text-muted); text-decoration: none; margin: 0 10px; font-weight: 700;">블로그</a>
+      </div>
+      <p class="text-muted font-sm mt-1">Responsible Gaming. You must be 18+ to play.</p>
+    </div>
+  </footer>
+</body>
+</html>
