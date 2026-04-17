@@ -96,6 +96,8 @@ button { cursor: pointer; border: none; outline: none; background: transparent; 
 
 .header-actions { display: flex; align-items: center; gap: 16px; }
 .bonus-badge { font-size: 0.85rem; font-weight: 700; color: #ef4444; background: #fef2f2; padding: 4px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; animation: gentlePulse 2s infinite;}
+.code-badge { font-size: 0.85rem; font-weight: 700; color: var(--primary); background: #eef2ff; padding: 4px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; border: 1px solid #c7d2fe; }
+.code-badge strong { color: #1d4ed8; font-weight: 900; letter-spacing: 0.02em; }
 
 /* Hero Area */
 .hero-landing { padding: 60px 0 100px 0; background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%); overflow: hidden;}
@@ -295,7 +297,7 @@ button { cursor: pointer; border: none; outline: none; background: transparent; 
 
   /* Hero adjustments */
   .hero-buttons { flex-direction: column; width: 100%; gap: 10px; }
-  .bonus-badge { display: none; }
+  .bonus-badge, .code-badge { display: none; }
   .hero-3d-img { max-width: 300px; }
   .hero-code-box { flex-direction: column; text-align: center; width: 100%; font-size: 0.9rem;}
 
