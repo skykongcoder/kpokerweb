@@ -45,6 +45,24 @@ const CATEGORY_ICONS = {
   'news': '📣',
 };
 
+const CATEGORY_IMAGES = {
+  'strategy': '/cards.png',
+  'hand-analysis': '/cards.png',
+  'tournament': '/chest.png',
+  'glossary': '/cards.png',
+  'guide': '/cards.png',
+  'news': '/chest.png',
+};
+
+const CATEGORY_GRADIENTS = {
+  'strategy': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(37,99,235,0.55))',
+  'hand-analysis': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(220,38,38,0.5))',
+  'tournament': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(245,158,11,0.55))',
+  'glossary': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(16,185,129,0.5))',
+  'guide': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(139,92,246,0.5))',
+  'news': 'linear-gradient(135deg, rgba(15,23,42,0.85), rgba(236,72,153,0.5))',
+};
+
 function calculateReadingTime(text) {
   const koreanChars = (text.match(/[\uac00-\ud7af]/g) || []).length;
   const englishWords = text.replace(/[\uac00-\ud7af]/g, '').split(/\s+/).filter(Boolean).length;
@@ -106,11 +124,13 @@ function collectPosts() {
     const keywords = (fm.keywords || ['텍사스 홀덤', '온라인 홀덤', 'K-POKER']).join(', ');
     const readingTime = calculateReadingTime(mdBody);
     const wordCount = calculateWordCount(mdBody);
+    const image = fm.image || CATEGORY_IMAGES[category] || '/cards.png';
+    const gradient = CATEGORY_GRADIENTS[category] || CATEGORY_GRADIENTS['strategy'];
 
     posts.push({
       slug, title, date, dateIso, dateDisplay,
       category, categoryLabel, excerpt, keywords,
-      readingTime, wordCount, mdBody,
+      readingTime, wordCount, mdBody, image, gradient,
     });
   }
 
@@ -129,11 +149,15 @@ function buildRelatedPostsHtml(currentPost, allPosts) {
   return picks.map(p => `
         <article class="related-card">
           <a href="/blog/${escapeHtml(p.slug)}">
-            <span class="related-card-tag">${escapeHtml(p.categoryLabel)}</span>
-            <h3 class="related-card-title">${escapeHtml(p.title)}</h3>
-            <div class="related-card-meta">
-              <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
-              <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+            <div class="related-card-thumb" style="background: ${p.gradient}, url('${escapeHtml(p.image)}') center/cover no-repeat, #1e293b;">
+              <span class="related-card-tag">${escapeHtml(p.categoryLabel)}</span>
+            </div>
+            <div class="related-card-body">
+              <h3 class="related-card-title">${escapeHtml(p.title)}</h3>
+              <div class="related-card-meta">
+                <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
+                <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+              </div>
             </div>
           </a>
         </article>`).join('\n');
@@ -182,10 +206,12 @@ function buildIndex(posts) {
     postsHtml = posts.map(p => `
       <article class="blog-card" data-category="${escapeHtml(p.category)}">
         <a href="/blog/${escapeHtml(p.slug)}">
-          <div class="blog-card-thumb">${CATEGORY_ICONS[p.category] || '♠'}</div>
+          <div class="blog-card-thumb" style="background: ${p.gradient}, url('${escapeHtml(p.image)}') center/cover no-repeat, #1e293b;">
+            <span class="blog-card-thumb-tag">${escapeHtml(p.categoryLabel)}</span>
+            <span class="blog-card-thumb-icon">${CATEGORY_ICONS[p.category] || '♠'}</span>
+          </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
-              <span class="blog-card-tag">${escapeHtml(p.categoryLabel)}</span>
               <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
               <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
             </div>
@@ -255,12 +281,16 @@ function updateHomepage(posts) {
   const cardsHtml = latest.map(p => `
         <article class="blog-teaser-card">
           <a href="/blog/${escapeHtml(p.slug)}">
-            <span class="blog-teaser-tag">${escapeHtml(p.categoryLabel)}</span>
-            <h3 class="blog-teaser-title">${escapeHtml(p.title)}</h3>
-            <p class="blog-teaser-excerpt">${escapeHtml(p.excerpt)}</p>
-            <div class="blog-teaser-meta">
-              <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
-              <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+            <div class="blog-teaser-thumb" style="background: ${p.gradient}, url('${escapeHtml(p.image)}') center/cover no-repeat, #1e293b;">
+              <span class="blog-teaser-tag">${escapeHtml(p.categoryLabel)}</span>
+            </div>
+            <div class="blog-teaser-body">
+              <h3 class="blog-teaser-title">${escapeHtml(p.title)}</h3>
+              <p class="blog-teaser-excerpt">${escapeHtml(p.excerpt)}</p>
+              <div class="blog-teaser-meta">
+                <span><i class="ph ph-calendar"></i> ${escapeHtml(p.dateDisplay)}</span>
+                <span><i class="ph ph-clock"></i> ${p.readingTime}분</span>
+              </div>
             </div>
           </a>
         </article>`).join('\n');
@@ -271,8 +301,10 @@ function updateHomepage(posts) {
         .blog-teaser-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
         .blog-teaser-card { background: white; border: 1px solid #e2e8f0; border-radius: 16px; transition: all 0.3s; overflow: hidden; }
         .blog-teaser-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .blog-teaser-card a { text-decoration: none; color: inherit; display: block; padding: 24px; }
-        .blog-teaser-tag { display: inline-block; background: #eff6ff; color: var(--primary); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; border: 1px solid #dbeafe; margin-bottom: 12px; }
+        .blog-teaser-card a { text-decoration: none; color: inherit; display: block; }
+        .blog-teaser-thumb { height: 160px; position: relative; display: flex; align-items: flex-end; padding: 14px; }
+        .blog-teaser-tag { display: inline-block; background: rgba(255,255,255,0.92); color: var(--primary); padding: 4px 12px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; backdrop-filter: blur(6px); }
+        .blog-teaser-body { padding: 22px 24px 24px; }
         .blog-teaser-title { font-size: 1.1rem; font-weight: 800; color: #0f172a; line-height: 1.4; margin: 0 0 10px; }
         .blog-teaser-excerpt { font-size: 0.9rem; color: #64748b; line-height: 1.6; margin: 0 0 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         .blog-teaser-meta { font-size: 0.8rem; color: #94a3b8; display: flex; gap: 14px; align-items: center; }

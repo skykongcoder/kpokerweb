@@ -143,11 +143,13 @@
     .related-posts { max-width: 1100px; margin: 60px auto; padding: 0 24px; }
     .related-posts h2 { font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; padding-left: 14px; border-left: 4px solid var(--primary); }
     .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .related-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: all 0.2s; }
+    .related-card { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.2s; }
     .related-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
     .related-card a { text-decoration: none; color: inherit; display: block; }
-    .related-card-tag { display: inline-block; background: #eff6ff; color: var(--primary); padding: 3px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; border: 1px solid #dbeafe; margin-bottom: 10px; }
-    .related-card-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); line-height: 1.4; margin-bottom: 8px; }
+    .related-card-thumb { height: 130px; position: relative; display: flex; align-items: flex-end; padding: 12px; }
+    .related-card-tag { display: inline-block; background: rgba(255,255,255,0.92); color: var(--primary); padding: 3px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.68rem; backdrop-filter: blur(6px); }
+    .related-card-body { padding: 18px 20px 20px; }
+    .related-card-title { font-size: 1.02rem; font-weight: 700; color: var(--text-main); line-height: 1.4; margin: 0 0 10px; }
     .related-card-meta { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; align-items: center; }
 
     .post-nav { max-width: 760px; margin: 40px auto 60px; padding: 0 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -284,33 +286,45 @@
         
         <article class="related-card">
           <a href="/blog/aa-vs-kk-preflop-dynamics">
-            <span class="related-card-tag">핸드 분석</span>
-            <h3 class="related-card-title">AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임</h3>
-            <div class="related-card-meta">
-              <span><i class="ph ph-calendar"></i> 2026.04.15</span>
-              <span><i class="ph ph-clock"></i> 4분</span>
+            <div class="related-card-thumb" style="background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(220,38,38,0.5)), url('/cards.png') center/cover no-repeat, #1e293b;">
+              <span class="related-card-tag">핸드 분석</span>
+            </div>
+            <div class="related-card-body">
+              <h3 class="related-card-title">AA vs KK 프리플랍 - 코인플립이 아닌 80:20 게임</h3>
+              <div class="related-card-meta">
+                <span><i class="ph ph-calendar"></i> 2026.04.15</span>
+                <span><i class="ph ph-clock"></i> 4분</span>
+              </div>
             </div>
           </a>
         </article>
 
         <article class="related-card">
           <a href="/blog/position-power-button">
-            <span class="related-card-tag">전략</span>
-            <h3 class="related-card-title">포지션의 힘 - 버튼이 가장 비싼 자리인 이유</h3>
-            <div class="related-card-meta">
-              <span><i class="ph ph-calendar"></i> 2026.04.18</span>
-              <span><i class="ph ph-clock"></i> 3분</span>
+            <div class="related-card-thumb" style="background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(37,99,235,0.55)), url('/cards.png') center/cover no-repeat, #1e293b;">
+              <span class="related-card-tag">전략</span>
+            </div>
+            <div class="related-card-body">
+              <h3 class="related-card-title">포지션의 힘 - 버튼이 가장 비싼 자리인 이유</h3>
+              <div class="related-card-meta">
+                <span><i class="ph ph-calendar"></i> 2026.04.18</span>
+                <span><i class="ph ph-clock"></i> 3분</span>
+              </div>
             </div>
           </a>
         </article>
 
         <article class="related-card">
           <a href="/blog/pot-odds-basics">
-            <span class="related-card-tag">전략</span>
-            <h3 class="related-card-title">팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준</h3>
-            <div class="related-card-meta">
-              <span><i class="ph ph-calendar"></i> 2026.04.17</span>
-              <span><i class="ph ph-clock"></i> 3분</span>
+            <div class="related-card-thumb" style="background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(37,99,235,0.55)), url('/cards.png') center/cover no-repeat, #1e293b;">
+              <span class="related-card-tag">전략</span>
+            </div>
+            <div class="related-card-body">
+              <h3 class="related-card-title">팟 오즈(Pot Odds) 완전 정복 - 콜·폴드 결정의 수학적 기준</h3>
+              <div class="related-card-meta">
+                <span><i class="ph ph-calendar"></i> 2026.04.17</span>
+                <span><i class="ph ph-clock"></i> 3분</span>
+              </div>
             </div>
           </a>
         </article>
