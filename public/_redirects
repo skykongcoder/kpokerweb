@@ -8,3 +8,6 @@
 
 # /blog/<slug> automatically serves /blog/<slug>.html via Cloudflare's
 # html_handling: "auto-trailing-slash" (default). No rewrite rule needed.
+
+# Redirect old Korean-slug URL to new ASCII slug so Google can update its index
+/blog/ak-vs-jj-%ED%81%B4%EB%9E%98%EC%8B%9D-%EC%BD%94%EC%9D%B8%ED%94%8C%EB%A6%BD%EC%9D%98-%EC%A7%84%EC%8B%A4  /blog/ak-vs-jj-coinflip-myth  301
