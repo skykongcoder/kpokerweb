@@ -231,42 +231,47 @@ function buildIndex(posts) {
 }
 
 function updateSitemap(posts) {
-  if (!fs.existsSync(SITEMAP_PATH)) {
-    console.warn(`[build-blog] No sitemap at ${SITEMAP_PATH}, skipping update.`);
-    return;
-  }
-
   const today = new Date().toISOString().split('T')[0];
 
-  const blogIndexEntry = `  <url>
-    <loc>https://kpoker.win/blog</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`;
+  const staticEntries = [
+    { loc: 'https://kpoker.win/', changefreq: 'daily', priority: '1.0' },
+    { loc: 'https://kpoker.win/strategy', changefreq: 'monthly', priority: '0.9' },
+    { loc: 'https://kpoker.win/guide', changefreq: 'weekly', priority: '0.8' },
+    { loc: 'https://kpoker.win/notice', changefreq: 'weekly', priority: '0.7' },
+    { loc: 'https://kpoker.win/insta', changefreq: 'monthly', priority: '0.6' },
+    { loc: 'https://kpoker.win/blog', changefreq: 'weekly', priority: '0.8' },
+  ];
 
-  const postEntries = posts.map(p => `  <url>
-    <loc>https://kpoker.win/blog/${p.slug}</loc>
-    <lastmod>${p.dateIso}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`).join('\n');
+  const blogEntries = posts.map(p => ({
+    loc: `https://kpoker.win/blog/${p.slug}`,
+    lastmod: p.dateIso,
+    changefreq: 'monthly',
+    priority: '0.7',
+  }));
 
-  const allBlogEntries = [blogIndexEntry, postEntries].filter(Boolean).join('\n');
+  const allEntries = [
+    ...staticEntries.map(e => ({ ...e, lastmod: today })),
+    ...blogEntries,
+  ];
 
-  let sitemap = fs.readFileSync(SITEMAP_PATH, 'utf8');
+  const urlBlocks = allEntries.map(e =>
+`<url>
+<loc>${e.loc}</loc>
+<lastmod>${e.lastmod}</lastmod>
+<changefreq>${e.changefreq}</changefreq>
+<priority>${e.priority}</priority>
+</url>`
+  ).join('\n');
 
-  // Remove old auto-generated blog block if exists
-  sitemap = sitemap.replace(/\n\s*<!-- BLOG_AUTO_START -->[\s\S]*?<!-- BLOG_AUTO_END -->/g, '');
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlBlocks}
+</urlset>
+`;
 
-  // Insert new block right before </urlset>
-  sitemap = sitemap.replace(
-    '</urlset>',
-    `  <!-- BLOG_AUTO_START -->\n${allBlogEntries}\n  <!-- BLOG_AUTO_END -->\n</urlset>`
-  );
-
-  fs.writeFileSync(SITEMAP_PATH, sitemap, 'utf8');
-  console.log(`[build-blog] Updated sitemap.xml with ${posts.length + 1} blog URLs`);
+  // Write with LF line endings (no CRLF) for maximum parser compatibility
+  fs.writeFileSync(SITEMAP_PATH, sitemap.replace(/\r\n/g, '\n'), { encoding: 'utf8' });
+  console.log(`[build-blog] Wrote sitemap.xml with ${allEntries.length} URLs (LF, no comments, no extensions)`);
 }
 
 function updateHomepage(posts) {
