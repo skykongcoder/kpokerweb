@@ -1,0 +1,6 @@
+# Force LF line endings for files served as-is by CDN
+# Prevents Windows checkouts from converting to CRLF during deploy.
+*.xml text eol=lf
+*.txt text eol=lf
+public/_redirects text eol=lf
+public/_headers text eol=lf
