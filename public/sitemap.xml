@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://kpoker.win/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,32 +13,32 @@
   </url>
   <url>
     <loc>https://kpoker.win/strategy</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kpoker.win/guide</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kpoker.win/notice</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kpoker.win/insta</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- BLOG_AUTO_START -->
   <url>
     <loc>https://kpoker.win/blog</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
